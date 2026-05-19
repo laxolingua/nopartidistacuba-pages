@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NP Blog – Alternativa No Partidista</title>
+    <style>
+        :root {
+            --primary: #0a3d62;
+            --secondary: #f5f6fa;
+            --accent: #1e90ff;
+            --card-radius: 12px;
+        }
+        body {
+            margin: 0;
+            font-family: 'Inter', Arial, sans-serif;
+            background: var(--secondary);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px clamp(20px, 5vw, 72px);
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(6,58,140,0.10);
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 900;
+            color: #03245C;
+            text-decoration: none;
+        }
+        .brand-mark {
+            width: 52px;
+            height: 52px;
+            display: block;
+            object-fit: contain;
+            flex-shrink: 0;
+            border-radius: 24%;
+            filter: drop-shadow(0 14px 34px rgba(6,58,140,0.20));
+        }
+        .brand-text span {
+            display: block;
+            line-height: 1;
+        }
+        .brand-text .small {
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #3C4554;
+        }
+        .brand-text .name {
+            font-size: 18px;
+            letter-spacing: -0.02em;
+            color: #03245C;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            font-size: 15px;
+            font-weight: 800;
+        }
+        .nav-links a {
+            color: #03245C;
+            text-decoration: none;
+        }
+        .nav-cta {
+            padding: 12px 18px;
+            background: #FDBA22;
+            color: #03245C !important;
+            border-radius: 999px;
+            font-weight: 900;
+        }
+        @media (max-width: 900px) {
+            .site-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 14px;
+            }
+        }
+        .container {
+            max-width: 1180px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        h1 {
+            text-align: left;
+            margin-bottom: 0.5rem;
+            font-size: 2.6rem;
+            color: var(--primary);
+        }
+        .intro {
+            margin-bottom: 2rem;
+            color: #4b5563;
+            max-width: 780px;
+        }
+        .blog-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.8fr);
+            gap: 2rem;
+            align-items: start;
+        }
+        .post-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .post {
+            background: #fff;
+            border-radius: var(--card-radius);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+        }
+        /* Ajuste de miniaturas para listado de artículos */
+        .post .thumb {
+            width: 250px;
+            min-height: 200px;
+            border-top-left-radius: var(--card-radius);
+            border-bottom-left-radius: var(--card-radius);
+            position: relative;
+            overflow: hidden;
+        }
+        .post .thumb::before {
+            content: "NP";
+            position: absolute;
+            right: -10px;
+            bottom: -34px;
+            font-size: 130px;
+            font-weight: 900;
+            letter-spacing: 0.01em;
+            color: rgba(255,255,255,0.18);
+            transform: rotate(-14deg);
+        }
+        .thumb-number {
+            position: absolute;
+            left: 18px;
+            top: 16px;
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            display: grid;
+            place-items: center;
+            background: rgba(255,255,255,0.92);
+            color: #03245C;
+            font-size: 28px;
+            font-weight: 900;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+            position: absolute;
+            z-index: 2;
+        }
+        /* Paleta de colores para cada entrada del listado */
+        .post.post-1 .thumb {
+            background-image: linear-gradient(135deg, #FFC857, #FF9A00);
+        }
+        .post.post-2 .thumb {
+            background-image: linear-gradient(135deg, #E14B69, #FA709A);
+        }
+        .post.post-3 .thumb {
+            background-image: linear-gradient(135deg, #845EC2, #D65DB1);
+        }
+        .post.post-4 .thumb {
+            background-image: linear-gradient(135deg, #063A8C, #0B78D0);
+        }
+        .post.post-5 .thumb {
+            background-image: linear-gradient(135deg, #138A36, #22B14C);
+        }
+        .post.post-6 .thumb {
+            background-image: linear-gradient(135deg, #7B2CBF, #9D6BFF);
+        }
+        .post.post-7 .thumb {
+            background-image: linear-gradient(135deg, #063A8C, #4DA3FF);
+        }
+        .post-content {
+            padding: 1rem 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .post-number {
+            display: inline-block;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #0a3d62;
+        }
+        .post-date {
+            display: block;
+            margin-bottom: 0.7rem;
+            font-size: 0.95rem;
+            color: #6b7280;
+        }
+        .post-content h2 {
+            margin: 0 0 0.5rem;
+            font-size: 1.6rem;
+        }
+        .post-content p {
+            flex: 1;
+            margin-bottom: 1rem;
+            color: #444;
+        }
+        .post-content a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .post-content a:hover {
+            text-decoration: underline;
+        }
+        .sidebar-box {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        .sidebar-box h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        .blog-index {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .blog-index li {
+            margin-bottom: 0.8rem;
+        }
+        .blog-index a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .tag {
+            display: inline-block;
+            padding: 0.45rem 0.7rem;
+            border-radius: 999px;
+            background: #eef5ff;
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        @media (max-width: 900px) {
+            .blog-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .post {
+                flex-direction: column;
+            }
+            .post .thumb {
+                width: 100%;
+                height: 200px;
+                border-radius: 12px 12px 0 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="site-nav" aria-label="Navegación principal">
+        <a href="index.html" class="brand" aria-label="NP Alternativa No Partidista de Cuba">
+            <img class="brand-mark" src="images/np-logo-2026.jpg" alt="NP Alternativa No Partidista de Cuba">
+            <div class="brand-text">
+                <span class="small">Alternativa</span>
+                <span class="name">No Partidista de Cuba</span>
+            </div>
+        </a>
+        <div class="nav-links">
+            <a href="index.html#que-es">Qué es</a>
+            <a href="index.html#diversidad">Diversidad política</a>
+            <a href="index.html#argumento">Argumento</a>
+            <a href="index.html#metodo">Método</a>
+            <a href="index.html#blog">Blog</a>
+            <a class="nav-cta" href="afiliacion.html">Afíliate</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Blog NP</h1>
+        <p class="intro">Una biblioteca breve para desarrollar la idea no partidista, ubicar textos por número, fecha y tema, y facilitar futuras referencias como “Blog No. 20”.</p>
+        <div class="blog-layout">
+            <div class="post-list">
+                <article class="post post-7">
+                    <div class="thumb"><div class="thumb-number">07</div></div>
+                    <div class="post-content">
+                        <span class="post-number">Blog No. 07</span>
+                        <span class="post-date">Publicado: 19 de mayo de 2026</span>
+                        <h2>Reconocer el bien, venga de donde venga</h2>
+                        <p>Una reflexión sobre madurez cívica, bien común y la necesidad de evaluar ideas y acciones por su valor real, no por el bando del que provengan.</p>
+                        <a href="blog7.html">Leer artículo completo →</a>
+                    </div>
+                </article>
+                <article class="post post-6">
+                    <div class="thumb"><div class="thumb-number">06</div></div>
+                    <div class="post-content">
+                        <span class="post-number">Blog No. 06</span>
+                        <span class="post-date">Publicado: 10 de mayo de 2026</span>
+                        <h2>La Cuba futura tendrá que aprender a convivir con la diferencia</h2>
+                        <p>Una reflexión sobre coexistencia democrática, pluralismo y la necesidad de que una Cuba libre aprenda a vivir con ideas diversas, incluso opuestas.</p>
+                        <a href="blog6.html">Leer artículo completo →</a>
+                    </div>
+                </article>
+                <article class="post post-5">
+                    <div class="thumb"><div class="thumb-number">05</div></div>
+                    <div class="post-content">
+                        <span class="post-number">Blog No. 05</span>
+                        <span class="post-date">Publicado: 10 de mayo de 2026</span>
+                        <h2>“Con todos y para el bien de todos”: una frase que exige coherencia</h2>
+                        <p>Una reflexión sobre Martí, la coherencia ética del pluralismo y la necesidad de una Cuba democrática construida verdaderamente con todos.</p>
+                        <a href="blog5.html">Leer artículo completo →</a>
+                    </div>
+                </article>
+                <article class="post post-4">
+                    <div class="thumb"><div class="thumb-number">04</div></div>
+                    <div class="post-content">
+                        <span class="post-number">Blog No. 04</span>
+                        <span class="post-date">Publicado: 9 de mayo de 2026</span>
+                        <h2>“No hay izquierda ni derecha, solo húngaros”: el discurso de Péter Magyar y el sueño de una Cuba libre</h2>
+                        <p>Una reflexión sobre unidad nacional, pluralismo y el deseo de escuchar algún día en Cuba una convocatoria democrática capaz de ponerse por encima de las etiquetas ideológicas.</p>
+                        <a href="blog4.html">Leer artículo completo →</a>
+                    </div>
+                </article>
+                <article class="post post-1">
+                    <div class="thumb"><div class="thumb-number">01</div></div>
+                    <div class="post-content">
+                        <span class="post-number">Blog No. 01</span>
+                        <span class="post-date">Publicado: 9 de mayo de 2026</span>
+                        <h2>El no partidismo ante la polarización global</h2>
+                        <p>Un análisis del panorama político actual que explica las razones del no partidismo como vía alternativa.</p>
+                        <a href="blog2.html">Leer artículo completo →</a>
+                    </div>
+                </article>
+                <article class="post post-2">
+                    <div class="thumb"><div class="thumb-number">02</div></div>
+                    <div class="post-content">
+                        <span class="post-number">Blog No. 02</span>
+                        <span class="post-date">Publicado: 9 de mayo de 2026</span>
+                        <h2>Candidatos independientes y la vía plural</h2>
+                        <p>¿Cómo pueden los candidatos independientes construir una plataforma de gobierno común desde ENTRE TODOS?</p>
+                        <a href="blog3.html">Leer artículo completo →</a>
+                    </div>
+                </article>
+                <article class="post post-3">
+                    <div class="thumb"><div class="thumb-number">03</div></div>
+                    <div class="post-content">
+                        <span class="post-number">Blog No. 03</span>
+                        <span class="post-date">Publicado: 9 de mayo de 2026</span>
+                        <h2>El no partidismo como identidad política</h2>
+                        <p>La identidad de quienes participan basándose en principios y soluciones, no en siglas.</p>
+                        <a href="blog1.html">Leer artículo completo →</a>
+                    </div>
+                </article>
+            </div>
+            <aside>
+                <div class="sidebar-box">
+                    <h3>Índice de blogs</h3>
+                    <ol class="blog-index">
+                        <li><a href="blog7.html">No. 07, Reconocer el bien, venga de donde venga</a></li>
+                        <li><a href="blog6.html">No. 06, La Cuba futura tendrá que aprender a convivir con la diferencia</a></li>
+                        <li><a href="blog5.html">No. 05, “Con todos y para el bien de todos”</a></li>
+                        <li><a href="blog4.html">No. 04, “No hay izquierda ni derecha, solo húngaros”</a></li>
+                        <li><a href="blog2.html">No. 01, El no partidismo ante la polarización global</a></li>
+                        <li><a href="blog3.html">No. 02, Candidatos independientes y la vía plural</a></li>
+                        <li><a href="blog1.html">No. 03, El no partidismo como identidad política</a></li>
+                    </ol>
+                </div>
+                <div class="sidebar-box">
+                    <h3>Tags / temas</h3>
+                    <div class="tag-list">
+                        <span class="tag">No partidismo</span>
+                        <span class="tag">Pluralismo</span>
+                        <span class="tag">Candidatos independientes</span>
+                        <span class="tag">Democracia</span>
+                        <span class="tag">Polarización</span>
+                        <span class="tag">Plataforma común</span>
+                        <span class="tag">Unidad nacional</span>
+                        <span class="tag">Cuba libre</span>
+                        <span class="tag">Martí</span>
+                        <span class="tag">Ética política</span>
+                        <span class="tag">Convivencia democrática</span>
+                        <span class="tag">Diferencia</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</body>
+</html>

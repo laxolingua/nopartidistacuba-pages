@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Cuba futura tendrá que aprender a convivir con la diferencia – NP Blog</title>
+    <meta name="description" content="Una reflexión sobre coexistencia democrática, pluralismo y la necesidad de que una Cuba libre aprenda a vivir con ideas diversas.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="La Cuba futura tendrá que aprender a convivir con la diferencia">
+    <meta property="og:description" content="Una reflexión sobre coexistencia democrática, pluralismo y la necesidad de que una Cuba libre aprenda a vivir con ideas diversas.">
+    <meta property="og:url" content="https://nopartidistacuba.org/blog6.html">
+    <meta property="og:image" content="https://nopartidistacuba.org/images/share/np-share-blog-06.png">
+    <meta name="twitter:image" content="https://nopartidistacuba.org/images/share/np-share-blog-06.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="La Cuba futura tendrá que aprender a convivir con la diferencia">
+    <meta name="twitter:description" content="Una reflexión sobre coexistencia democrática, pluralismo y la necesidad de que una Cuba libre aprenda a vivir con ideas diversas.">
+
+    <style>
+        :root {
+            --primary: #0a3d62;
+            --secondary: #f5f6fa;
+            --accent: #1e90ff;
+        }
+        body {
+            margin: 0;
+            font-family: 'Inter', Arial, sans-serif;
+            background: var(--secondary);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px clamp(20px, 5vw, 72px);
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(6,58,140,0.10);
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 900;
+            color: #03245C;
+            text-decoration: none;
+        }
+        .brand-mark {
+            width: 52px;
+            height: 52px;
+            display: block;
+            object-fit: contain;
+            flex-shrink: 0;
+            border-radius: 24%;
+            filter: drop-shadow(0 14px 34px rgba(6,58,140,0.20));
+        }
+        .brand-text span {
+            display: block;
+            line-height: 1;
+        }
+        .brand-text .small {
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #3C4554;
+        }
+        .brand-text .name {
+            font-size: 18px;
+            letter-spacing: -0.02em;
+            color: #03245C;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            font-size: 15px;
+            font-weight: 800;
+        }
+        .nav-links a {
+            color: #03245C;
+            text-decoration: none;
+        }
+        .nav-cta {
+            padding: 12px 18px;
+            background: #FDBA22;
+            color: #03245C !important;
+            border-radius: 999px;
+            font-weight: 900;
+        }
+        @media (max-width: 900px) {
+            .site-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 14px;
+            }
+        }
+        .post-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        .post-header {
+            background-image: linear-gradient(135deg, #7B2CBF, #9D6BFF);
+            color: #fff;
+            padding: 2rem;
+            border-radius: 12px 12px 0 0;
+        }
+        .post-meta {
+            display: inline-block;
+            margin-bottom: 0.7rem;
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            opacity: 0.95;
+        }
+        .post-header h1 {
+            margin: 0;
+            font-size: 2rem;
+            line-height: 1.1;
+        }
+        .post-content {
+            padding: 2rem;
+        }
+        .post-content p {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+        .tag {
+            display: inline-block;
+            padding: 0.45rem 0.7rem;
+            border-radius: 999px;
+            background: #eef5ff;
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 1rem 0 0 2rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+            .share-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1.5rem 0 0;
+        }
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.75rem 1rem;
+            border-radius: 999px;
+            background: #eef5ff;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            border: 0;
+            cursor: pointer;
+        }
+
+            .comments-box {
+            margin: 2rem auto 0;
+            max-width: 800px;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        .comments-box h2 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .comment-form input, .comment-form textarea {
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .comment-form button {
+            align-self: flex-start;
+            padding: 0.8rem 1.2rem;
+            border: 0;
+            border-radius: 999px;
+            background: #0B78D0;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .comment-note {
+            color: #4b5563;
+            font-size: 0.95rem;
+        }
+        .comment-status {
+            display: none;
+            margin-top: 0.75rem;
+            padding: 0.85rem 1rem;
+            border-radius: 10px;
+            font-size: 0.95rem;
+        }
+        .comment-status.success {
+            display: block;
+            background: #eefbf3;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+        .comment-status.error {
+            display: block;
+            background: #fef2f2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="site-nav" aria-label="Navegación principal">
+        <a href="index.html" class="brand" aria-label="NP Alternativa No Partidista de Cuba">
+            <img class="brand-mark" src="images/np-logo-2026.jpg" alt="NP Alternativa No Partidista de Cuba">
+            <div class="brand-text">
+                <span class="small">Alternativa</span>
+                <span class="name">No Partidista de Cuba</span>
+            </div>
+        </a>
+        <div class="nav-links">
+            <a href="index.html#que-es">Qué es</a>
+            <a href="index.html#diversidad">Diversidad política</a>
+            <a href="index.html#argumento">Argumento</a>
+            <a href="index.html#metodo">Método</a>
+            <a href="index.html#blog">Blog</a>
+            <a class="nav-cta" href="afiliacion.html">Afíliate</a>
+        </div>
+    </nav>
+    <div class="post-container">
+        <div class="post-header">
+            <span class="post-meta">Blog No. 06 · 10 de mayo de 2026</span>
+            <h1>La Cuba futura tendrá que aprender a convivir con la diferencia</h1>
+        </div>
+        <div class="post-content">
+            <p><strong>“En una Cuba futura, si es democrática, deberán coexistir ideas, propuestas y proyectos diversos; incluso opuestos. Será la mayoría de los cubanos quien decidirá por cuál de ellos se inclina; y esa misma mayoría determinará cambiar de opinión si tales proyectos no resultan.”</strong><br>— Alina Bárbara López Hernández</p>
+            <p>Esa frase resume una verdad que muchos repiten en teoría, pero pocos aceptan en la práctica: una Cuba democrática no puede construirse desde la exclusión del que piensa diferente.</p>
+            <p>Durante demasiado tiempo, la política cubana ha estado secuestrada por una lógica de verdad única. Primero, impuesta desde el poder totalitario. Después, muchas veces reproducida también desde sectores de la oposición, donde cada grupo, partido, liderazgo o corriente cree tener la fórmula correcta para la nación y mira con sospecha, desprecio o rechazo a quienes no encajan dentro de su visión.</p>
+            <p>Pero una Cuba libre no puede nacer con el mismo reflejo excluyente que dice combatir.</p>
+            <p>La democracia exige algo más difícil que estar contra una dictadura. Exige aceptar que, en una Cuba futura, habrá liberales, socialdemócratas, conservadores, republicanos, cristianos, laicos, emprendedores, trabajadores, jóvenes, exiliados, residentes dentro de la isla, víctimas del sistema, antiguos creyentes del sistema, personas ideológicas, personas no ideológicas, personas partidistas y personas no partidistas.</p>
+            <p>Y todos deberán tener derecho a participar.</p>
+            <p>Eso no significa que todas las ideas sean igualmente buenas, ni que toda propuesta merezca apoyo automático. Significa que ninguna persona debe ser expulsada del debate nacional por no pertenecer al grupo correcto, por no repetir la consigna correcta o por no someterse a la corriente política dominante del momento.</p>
+            <p>La frase de Alina Bárbara López Hernández toca un punto esencial: será la mayoría de los cubanos quien decida. Y esa misma mayoría deberá conservar el derecho de cambiar de opinión si una propuesta no funciona.</p>
+            <p>Ese principio es profundamente democrático.</p>
+            <p>También es el corazón de la Alternativa No Partidista de Cuba.</p>
+            <p>La Alternativa No Partidista no nace para negar la existencia de partidos, ni para imponer una nueva etiqueta política sobre las demás. Nace para defender un principio más amplio: Cuba necesita una vía donde la ciudadanía no tenga que reducirse a bandos, siglas, ideologías o lealtades cerradas para poder participar en la construcción del país.</p>
+            <p>Una Cuba democrática no debe obligar a los ciudadanos a votar por plataformas partidistas cerradas, sino permitirles evaluar propuestas concretas, comparar soluciones, apoyar ideas útiles y rechazar aquellas que no respondan al bien común.</p>
+            <p>Por eso la Alternativa No Partidista propone una cultura política donde el centro no sea el partido, sino el ciudadano; donde el poder no se organice alrededor de una ideología, sino alrededor de soluciones; donde el gobierno no sea propiedad de una corriente, sino una plataforma plural, evaluada y decidida entre todos.</p>
+            <p>En ese sentido, la visión expresada por Alina conecta directamente con lo que Cuba necesita: coexistencia democrática, respeto al derecho a opinar, competencia limpia de ideas, posibilidad de rectificar y rechazo a toda forma de sectarismo.</p>
+            <p>La Cuba futura no será verdaderamente democrática si solo cambia de manos el poder, pero conserva la costumbre de excluir.</p>
+            <p>Será democrática cuando pueda convivir con ideas diversas, incluso opuestas, y cuando el pueblo cubano tenga el derecho real de escoger, evaluar, corregir y volver a escoger.</p>
+            <p>Ese es el país que defendemos desde la Alternativa No Partidista de Cuba: una Cuba plural, democrática, libre de totalitarismos y abierta a la participación de todos los cubanos que quieran construir, proponer y decidir sin tener que someterse a una verdad única.</p>
+            <p>Porque la libertad no se completa solo al salir de una dictadura.</p>
+            <p><strong>Se completa cuando aprendemos a vivir juntos sin imponernos unos a otros.</strong></p>
+            <div class="tags">
+                <span class="tag">Pluralismo</span>
+                <span class="tag">Democracia</span>
+                <span class="tag">Alina Bárbara López Hernández</span>
+                <span class="tag">No partidismo</span>
+                <span class="tag">Cuba futura</span>
+            </div>
+                    <div class="share-row">
+                <a class="share-btn" href="https://wa.me/?text=La Cuba futura tendrá que aprender a convivir con la diferencia https://nopartidistacuba.org/blog6.html" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://nopartidistacuba.org/blog6.html" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <button class="share-btn" type="button" onclick="copyShareLink('https://nopartidistacuba.org/blog6.html')">Copiar enlace</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="comments-box">
+        <h2>Comentarios</h2>
+        <p class="comment-note">Puedes dejar tu comentario. Se guarda con moderación previa antes de publicarse.</p>
+        <form class="comment-form" data-blog-slug="blog6" data-blog-number="6" data-blog-title="La Cuba futura tendrá que aprender a convivir con la diferencia" onsubmit="submitNpComment(event)">
+            <input type="text" name="display_name" placeholder="Tu nombre" required>
+            <input type="email" name="email" placeholder="Correo electrónico (opcional)">
+            <input type="text" name="location" placeholder="Ciudad / país (opcional)">
+            <textarea name="comment_body" rows="5" placeholder="Escribe tu comentario" required></textarea>
+            <button type="submit">Enviar comentario</button>
+            <div class="comment-status"></div>
+        </form>
+    </div>
+
+    <a class="back-link" href="blog.html">← Volver al blog</a>
+
+    
+    <script>
+        const NP_SUPABASE_URL = '"https://pfjcumyygdwslwtrlebr.supabase.co"';
+        const NP_SUPABASE_ANON_KEY = '"sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8"';
+
+        function copyShareLink(url) {
+            navigator.clipboard.writeText(url).then(() => {
+                alert('Enlace copiado');
+            }).catch(() => {
+                alert(url);
+            });
+        }
+
+        async function submitNpComment(event) {
+            event.preventDefault();
+            const form = event.target;
+            const status = form.querySelector('.comment-status');
+            const fd = new FormData(form);
+            status.className = 'comment-status';
+            status.style.display = 'block';
+            status.textContent = 'Enviando...';
+            const payload = {
+                blog_slug: form.dataset.blogSlug,
+                blog_number: Number(form.dataset.blogNumber),
+                blog_title: form.dataset.blogTitle,
+                display_name: fd.get('display_name') || '',
+                email: fd.get('email') || null,
+                location: fd.get('location') || null,
+                comment_body: fd.get('comment_body') || ''
+            };
+            try {
+                const resp = await fetch(`${NP_SUPABASE_URL}/rest/v1/np_blog_comments`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'apikey': NP_SUPABASE_ANON_KEY,
+                        'Authorization': `Bearer ${NP_SUPABASE_ANON_KEY}`
+                    },
+                    body: JSON.stringify(payload)
+                });
+                if (!resp.ok) throw new Error(await resp.text());
+                form.reset();
+                status.className = 'comment-status success';
+                status.textContent = 'Tu comentario fue enviado y quedará pendiente de moderación.';
+            } catch (err) {
+                console.error(err);
+                status.className = 'comment-status error';
+                status.textContent = 'No se pudo enviar el comentario. Intenta de nuevo más tarde.';
+            }
+        }
+    </script>
+
+</body>
+</html>

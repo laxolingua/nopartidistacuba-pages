@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NP | Alternativa No Partidista de Cuba</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
+  <style>
+    :root {
+      --azul-cuba: #063A8C;
+      --azul-profundo: #03245C;
+      --rojo-cuba: #CF142B;
+      --mango: #FDBA22;
+      --verde: #138A36;
+      --purpura: #7B2CBF;
+      --naranja: #F05A28;
+      --negro: #151515;
+      --blanco: #FFFFFF;
+      --gris-50: #FAFAFB;
+      --gris-100: #F2F4F8;
+      --gris-200: #E3E8F0;
+      --gris-700: #3C4554;
+      --gris-900: #101827;
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --shadow-soft: 0 22px 70px rgba(3, 36, 92, 0.18);
+      --shadow-card: 0 18px 48px rgba(16, 24, 39, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Barlow", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--gris-50);
+      color: var(--gris-900);
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .page { min-height: 100vh; overflow-x: hidden; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px clamp(20px, 5vw, 72px);
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(6,58,140,0.10);
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 900; color: var(--azul-profundo); }
+    .brand-mark {
+      width: 56px; height: 56px; display: block;
+      object-fit: contain; flex-shrink: 0;
+      border-radius: 24%;
+      filter: drop-shadow(0 14px 34px rgba(6,58,140,0.20));
+    }
+    .brand-text span { display: block; line-height: 1; }
+    .brand-text .small { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--gris-700); }
+    .brand-text .name { font-size: 18px; letter-spacing: -0.02em; }
+
+    .nav-links { display: flex; align-items: center; gap: 22px; font-size: 15px; font-weight: 800; color: var(--azul-profundo); }
+    .nav-cta, .btn-primary, .btn-secondary {
+      border: 0; cursor: pointer; font-family: inherit; font-weight: 900;
+      border-radius: 999px; transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .nav-cta { padding: 12px 18px; background: var(--mango); color: var(--azul-profundo); }
+    .nav-cta:hover, .btn-primary:hover, .btn-secondary:hover { transform: translateY(-2px); }
+
+    .hero {
+      position: relative; color: #fff;
+      padding: clamp(46px, 8vw, 96px) clamp(20px, 5vw, 72px) 62px;
+      background: linear-gradient(135deg, var(--azul-cuba) 0%, #0B78D0 54%, var(--azul-profundo) 100%);
+      overflow: hidden;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background:
+        linear-gradient(118deg, transparent 0 18%, rgba(255,255,255,.08) 18% 25%, transparent 25% 100%),
+        linear-gradient(150deg, transparent 0 70%, rgba(255,255,255,.06) 70% 78%, transparent 78% 100%);
+      pointer-events: none;
+    }
+    .hero::after { content: none; }
+
+    .hero-grid {
+      position: relative; z-index: 2; max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(300px, .74fr);
+      gap: clamp(28px, 5vw, 76px); align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px; padding: 9px 14px;
+      border-radius: 999px; background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.24); font-weight: 900;
+      letter-spacing: 0.04em; text-transform: uppercase; font-size: 13px;
+    }
+    h1 {
+      margin: 26px 0 18px; font-family: "Barlow", sans-serif;
+      font-size: clamp(48px, 6.8vw, 92px); line-height: .93;
+      letter-spacing: -0.035em; text-transform: uppercase;
+    }
+    .hero-wordmark {
+      display: block;
+      width: min(100%, 640px);
+      margin: 26px 0 18px;
+      object-fit: contain;
+      filter: drop-shadow(0 24px 42px rgba(0, 18, 64, 0.20));
+    }
+    .hero-lead {
+      max-width: 725px; font-size: clamp(20px, 2.1vw, 28px); line-height: 1.16;
+      font-weight: 650; color: rgba(255,255,255,0.92); margin: 0 0 28px;
+      margin-left: clamp(52px, 6vw, 82px);
+    }
+    .hero-actions {
+      display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px;
+      margin-left: clamp(52px, 6vw, 82px);
+    }
+    .btn-primary, .btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 24px; }
+    .btn-primary { background: var(--mango); color: var(--azul-profundo); box-shadow: 0 16px 38px rgba(253,186,34,0.28); }
+    .btn-secondary { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.28); }
+
+    .hero-card {
+      position: relative;
+      border-radius: 40px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(244,248,255,0.90) 100%);
+      color: var(--azul-profundo);
+      padding: clamp(24px, 4vw, 38px);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      min-height: 440px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(6px);
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -152px;
+      bottom: -162px;
+      width: 520px;
+      height: 520px;
+      background: url("images/np-logo-white-front.png") no-repeat center/contain;
+      opacity: 0.09;
+      transform: rotate(-8deg);
+      filter: brightness(0) saturate(100%) invert(13%) sepia(88%) saturate(1894%) hue-rotate(210deg) brightness(86%) contrast(107%);
+      pointer-events: none;
+    }
+    .hero-card-content { position: relative; z-index: 2; }
+    .stamp {
+      width: 150px;
+      height: 150px;
+      display: block;
+      object-fit: contain;
+      border-radius: 24%;
+      transform: rotate(-5deg);
+      filter: drop-shadow(0 22px 40px rgba(6,58,140,0.24));
+    }
+    .hero-card h2 { margin: 28px 0 12px; font-size: clamp(31px, 3vw, 44px); line-height: .95; letter-spacing: -0.04em; }
+    .hero-card p { margin: 0; font-size: 19px; line-height: 1.25; font-weight: 650; max-width: 430px; }
+    
+
+    .section { padding: 76px clamp(20px, 5vw, 72px); }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-header { display: grid; grid-template-columns: minmax(0,.82fr) minmax(0,1fr); gap: 32px; align-items: end; margin-bottom: 34px; }
+    .kicker { color: var(--rojo-cuba); font-weight: 900; text-transform: uppercase; letter-spacing: .08em; font-size: 13px; margin-bottom: 10px; }
+    .section h2 { margin: 0; font-family: "Barlow", sans-serif; font-size: clamp(34px,4.8vw,62px); line-height: .98; letter-spacing: -0.035em; color: var(--azul-profundo); text-transform: uppercase; }
+    .section-intro { font-size: 20px; line-height: 1.32; color: var(--gris-700); font-weight: 500; margin: 0; }
+
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .card {
+      position: relative; min-height: 252px; padding: 26px; border-radius: var(--radius-lg);
+      background: #fff; border: 1px solid rgba(6,58,140,0.08); overflow: hidden; box-shadow: var(--shadow-card);
+    }
+    .card::before { content: ""; position: absolute; left: 26px; right: auto; top: 0; width: 76px; height: 10px; border-radius: 0 0 999px 999px; background: var(--accent); }
+    .card .watermark {
+      position: absolute;
+      z-index: 1;
+      right: -58px;
+      bottom: -62px;
+      font-size: 210px;
+      line-height: 1;
+      color: color-mix(in srgb, var(--accent) 17%, transparent);
+      transform: rotate(-14deg);
+      pointer-events: none;
+    }
+    .card > i:not(.watermark) {
+      position: relative; z-index: 2; display: inline-grid; place-items: center; width: 56px; height: 56px;
+      border-radius: 18px; background: color-mix(in srgb, var(--accent) 18%, white); color: var(--accent);
+      font-size: 25px; margin-bottom: 28px;
+    }
+    .card h3 { position: relative; z-index: 3; margin: 0 0 10px; font-size: 26px; line-height: 1; letter-spacing: -0.03em; color: var(--azul-profundo); }
+    .card p { position: relative; z-index: 3; margin: 0; font-size: 17px; line-height: 1.34; color: var(--gris-700); font-weight: 500; }
+    .blue { --accent: var(--azul-cuba); } .red { --accent: var(--rojo-cuba); } .yellow { --accent: var(--mango); } .green { --accent: var(--verde); } .purple { --accent: var(--purpura); } .orange { --accent: var(--naranja); }
+
+    .contrast { background: var(--azul-profundo); color: #fff; position: relative; overflow: hidden; }
+    .contrast::before {
+      content: ""; position: absolute; inset: 0;
+      background:
+        linear-gradient(90deg, rgba(6,58,140,.35), transparent),
+        radial-gradient(circle at 88% 12%, rgba(253,186,34,.18), transparent 28%);
+    }
+    .contrast .section-inner { position: relative; z-index: 2; }
+    .contrast h2 { color: #fff; }
+    .contrast .section-intro { color: rgba(255,255,255,0.78); }
+    .contrast .kicker { color: var(--mango); }
+
+    .spectrum {
+      display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; margin-bottom: 26px;
+    }
+    .spectrum-card {
+      min-height: 170px; border-radius: 24px; padding: 18px; color: #fff; display: flex; flex-direction: column; justify-content: space-between;
+      box-shadow: 0 18px 42px rgba(0,0,0,.14); overflow: hidden; position: relative;
+    }
+    .spectrum-card::after { content: none; }
+    .spectrum-card i { font-size: 34px; position: relative; z-index: 2; }
+    .spectrum-card .watermark { position: absolute; right: -28px; bottom: -34px; font-size: 122px; color: rgba(255,255,255,.16); transform: rotate(-12deg); z-index: 1; }
+    .spectrum-card strong { position: relative; z-index: 2; font-size: 18px; line-height: 1.05; letter-spacing: -0.02em; }
+    .bg-blue { background: var(--azul-cuba); } .bg-red { background: var(--rojo-cuba); } .bg-yellow { background: var(--mango); color: var(--azul-profundo); } .bg-green { background: var(--verde); } .bg-purple { background: var(--purpura); } .bg-orange { background: var(--naranja); }
+
+    .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .panel { border-radius: var(--radius-xl); padding: clamp(26px,4vw,40px); min-height: 374px; }
+    .panel.party { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); }
+    .panel.np { background: #fff; color: var(--azul-profundo); position: relative; overflow: hidden; }
+    .panel.np::before { content: ""; position: absolute; left: 40px; top: 0; width: 110px; height: 14px; border-radius: 0 0 999px 999px; background: var(--mango); }
+    .panel-label { display: inline-flex; align-items: center; gap: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: .06em; font-size: 13px; opacity: .9; margin-bottom: 22px; }
+    .panel h3 { margin: 0 0 20px; font-family: "Barlow", sans-serif; font-size: clamp(34px,4.4vw,56px); line-height: .96; letter-spacing: -0.035em; text-transform: uppercase; }
+    .panel p { margin: 0; font-size: 20px; line-height: 1.28; font-weight: 650; max-width: 540px; }
+
+    .process { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; counter-reset: step; }
+    .step { counter-increment: step; position: relative; background: #fff; border-radius: var(--radius-lg); padding: 24px; min-height: 230px; border: 1px solid rgba(6,58,140,0.08); box-shadow: var(--shadow-card); overflow: hidden; }
+    .step::before { content: counter(step, decimal-leading-zero); display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: 16px; background: var(--accent); color: #fff; font-family: "Barlow", sans-serif; font-size: 26px; font-weight: 900; margin-bottom: 24px; }
+    .step h3 { margin: 0 0 10px; color: var(--azul-profundo); font-size: 23px; line-height: 1; letter-spacing: -0.03em; }
+    .step p { margin: 0; color: var(--gris-700); line-height: 1.32; font-weight: 500; }
+
+    .manifesto {
+      border-radius: var(--radius-xl); background: #fff; box-shadow: var(--shadow-soft); overflow: hidden;
+      display: grid; grid-template-columns: .94fr 1.06fr; margin-top: 22px;
+    }
+    .manifesto-flag { min-height: 420px; background: linear-gradient(135deg, #138A36 0%, #22B14C 100%); position: relative; overflow: hidden; }
+    .manifesto-flag::before { content: ""; position: absolute; width: 420px; height: 420px; right: -180px; bottom: -180px; border-radius: 88px; background: rgba(255,255,255,.08); transform: rotate(-14deg); }
+    .manifesto-flag::after { content: "NP"; position: absolute; left: 30px; bottom: 6px; font-family: "Barlow", sans-serif; font-weight: 900; font-size: 190px; letter-spacing: 0.01em; color: rgba(255,255,255,.82); }
+    .manifesto-text { padding: clamp(30px,5vw,56px); }
+    .manifesto-text h2 { margin-bottom: 18px; color: #2F3A4A; }
+    .manifesto:not(.vision-dream) .manifesto-text strong { color: #138A36; }
+    .manifesto-text p { font-size: 21px; line-height: 1.32; font-weight: 550; color: var(--gris-700); margin: 0 0 18px; }
+    .manifesto-text strong { color: var(--azul-profundo); }
+
+    .vision-dream {
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, #FFFFFF 0%, #F7F2FF 48%, #FFFFFF 100%);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: .94fr 1.06fr;
+      margin-top: 22px;
+      border: 1px solid rgba(123,44,191,.14);
+    }
+    .vision-dream .manifesto-flag {
+      background: linear-gradient(135deg, #5E2CA5 0%, #9D6BFF 100%);
+    }
+    .vision-dream .manifesto-flag::before {
+      content: "";
+      position: absolute;
+      width: 460px;
+      height: 460px;
+      right: -190px;
+      bottom: -190px;
+      border-radius: 96px;
+      background: rgba(255,255,255,.18);
+      transform: rotate(-14deg);
+    }
+    .vision-dream .manifesto-flag::after {
+      content: "NP";
+      position: absolute;
+      left: 30px;
+      bottom: 6px;
+      font-family: "Barlow", sans-serif;
+      font-weight: 900;
+      font-size: 190px;
+      letter-spacing: 0.01em;
+      color: rgba(255,255,255,.80);
+    }
+    .vision-dream .manifesto-text h2,
+    .vision-dream .manifesto-text strong {
+      color: #5E2CA5;
+    }
+    .vision-dream .manifesto-text {
+      background: radial-gradient(circle at 88% 12%, rgba(157,107,255,.14), transparent 34%);
+    }
+
+    .cta-band {
+      margin-top: 28px; border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--mango), #FFE081); color: var(--azul-profundo);
+      padding: clamp(32px,6vw,58px); display: grid; grid-template-columns: minmax(0,1fr) auto;
+      gap: 24px; align-items: center; overflow: hidden; position: relative;
+    }
+    .cta-band::before { content: ""; position: absolute; left: 58px; top: 0; width: 130px; height: 15px; border-radius: 0 0 999px 999px; background: #0B78D0; }
+    .cta-band::after { content: none; }
+    @media (max-width: 900px) {
+      .hero-grid,
+      .section-header,
+      .comparison,
+      .manifesto,
+      .vision-dream {
+        grid-template-columns: 1fr;
+      }
+      .hero-card,
+      .panel,
+      .manifesto-flag,
+      .vision-dream .manifesto-flag {
+        min-height: auto;
+      }
+      .spectrum {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .section-header {
+        gap: 18px;
+      }
+      .section h2 {
+        font-size: clamp(30px, 8vw, 44px);
+      }
+      .section-intro {
+        font-size: 18px;
+      }
+    }
+    @media (max-width: 620px) {
+      .cards, .process, .spectrum, .blog-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-secondary { width: 100%; }
+      .panel { min-height: auto; }
+      .brand-text .name { font-size: 16px; }
+      .hero { padding-top: 38px; }
+      .hero::after { content: none; }
+      .hero-card {
+        margin-top: 10px;
+      }
+      .hero-card {
+        border-radius: 34px;
+      }
+      .hero-lead,
+      .hero-actions {
+        margin-left: 0;
+      }
+      .stamp {
+        width: 112px;
+        height: 112px;
+      }
+      .hero-card::after {
+        width: 380px;
+        height: 380px;
+        right: -128px;
+        bottom: -132px;
+        opacity: 0.07;
+      }
+      .manifesto-text,
+      .hero-card,
+      .panel,
+      .step,
+      .card {
+        padding: 22px;
+      }
+      .cta-band {
+        grid-template-columns: 1fr;
+      }
+      .blog-layout-home {
+        grid-template-columns: 1fr;
+      }
+    }
+  
+    .blog-strip { background: #fff; }
+    .blog-layout-home { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr); gap: 22px; align-items: start; }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: start; }
+    .blog-tile { background: #fff; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-card); border: 1px solid rgba(6,58,140,0.08); display: flex; flex-direction: column; height: 100%; }
+    .blog-thumb { height: 190px; position: relative; overflow: hidden; }
+    .blog-thumb::before { content: "NP"; position: absolute; right: -10px; bottom: -40px; font-size: 140px; font-weight: 900; letter-spacing: 0.01em; color: rgba(255,255,255,0.18); transform: rotate(-14deg); }
+    .blog-thumb-number { position: absolute; left: 18px; top: 16px; width: 62px; height: 62px; border-radius: 18px; display: grid; place-items: center; color: #fff; font-size: 26px; font-weight: 900; box-shadow: 0 10px 24px rgba(0,0,0,0.10); z-index: 2; }
+    .blog-tile h3 { margin: 0 0 10px; font-size: 28px; line-height: 1.05; color: var(--azul-profundo); }
+    .blog-tile p { margin: 0; font-size: 17px; line-height: 1.34; color: var(--gris-700); }
+    .blog-copy { padding: 22px; display: flex; flex-direction: column; flex: 1; }
+    .blog-link { display: inline-flex; margin-top: auto; padding-top: 16px; font-weight: 800; color: #0B78D0; }
+    .thumb-lilac { background: linear-gradient(135deg, #7B2CBF, #9D6BFF); }
+    .thumb-lilac .blog-thumb-number { background: #5E2CA5; }
+    .thumb-green { background: linear-gradient(135deg, #138A36, #22B14C); }
+    .thumb-green .blog-thumb-number { background: #0E6B2A; }
+    .thumb-blue { background: linear-gradient(135deg, #063A8C, #0B78D0); }
+    .thumb-blue .blog-thumb-number { background: #032E73; }
+    .thumb-yellow { background: linear-gradient(135deg, #FFC857, #FF9A00); }
+    .thumb-yellow .blog-thumb-number { background: #C97800; }
+    .thumb-pink { background: linear-gradient(135deg, #E14B69, #FA709A); }
+    .thumb-pink .blog-thumb-number { background: #B12656; }
+    .thumb-purple { background: linear-gradient(135deg, #845EC2, #D65DB1); }
+    .thumb-purple .blog-thumb-number { background: #6B3DAA; }
+    .blog-sidebox { background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-card); border: 1px solid rgba(6,58,140,0.08); padding: 20px; }
+    .blog-sidebox h3 { margin-top: 0; color: var(--azul-profundo); }
+    .blog-sidebox ol { margin: 0; padding-left: 20px; }
+    .blog-sidebox li { margin-bottom: 10px; }
+    .blog-sidebox a { color: #0B78D0; font-weight: 700; }
+    @media (max-width: 980px) { .blog-layout-home { grid-template-columns: 1fr; } }
+    /* Future direction: when blog count grows, convert this grid into a horizontal reel/carousel with arrows. */
+    @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr; } }
+    .section-share { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .section-share a, .section-share button { background: #eef5ff; color: #03245C; border: 0; border-radius: 999px; padding: 10px 14px; font-weight: 800; text-decoration: none; cursor: pointer; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="#inicio" class="brand" aria-label="NP Alternativa No Partidista de Cuba">
+        <img class="brand-mark" src="images/np-logo-2026.jpg" alt="NP Alternativa No Partidista de Cuba">
+        <div class="brand-text">
+          <span class="small">Alternativa</span>
+          <span class="name">No Partidista de Cuba</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="#que-es">Qué es</a>
+        <a href="#diversidad">Diversidad política</a>
+        <a href="#argumento">Argumento</a>
+        <a href="#metodo">Método</a>
+        <a href="#blog">Blog</a>
+        <a class="nav-cta" href="afiliacion.html">Afíliate</a>
+      </div>
+    </nav>
+
+    <header class="hero" id="inicio">
+      <div class="hero-grid">
+        <section>
+          <div class="eyebrow"><i class="fi fi-br-lightbulb-on"></i> Soluciones por encima de colores políticos</div>
+          <img class="hero-wordmark" src="images/np-logo-white-front.png" alt="Alternativa No Partidista de Cuba">
+          <p class="hero-lead">Una vía plural para mirar las soluciones independientemente de quién las proponga o del color político de donde vengan.</p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="#afiliate"><i class="fi fi-br-user-add"></i> Me identifico con NP</a>
+            <a class="btn-secondary" href="#diversidad"><i class="fi fi-br-palette"></i> Ver la idea pluralista</a>
+          </div>
+        </section>
+        <aside class="hero-card" aria-label="Mensaje central NP">
+          <div class="hero-card-content">
+            <img class="stamp" src="images/np-logo-2026.jpg" alt="Logo NP Alternativa No Partidista de Cuba">
+            <h2>La Alternativa No Partidista no es antipartidista.</h2>
+            <p>Es una forma de participación cívica que puede nutrirse de lo mejor de cada partido, grupo, ciudadano o corriente política.</p>
+            
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section class="section blog-strip" id="blog">
+      <div class="section-inner">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Blog NP</div>
+            <h2>Ideas, argumentos y vía plural</h2>
+          </div>
+          <p class="section-intro">Una sección de lectura para profundizar en el no partidismo, la vía plural y el papel de los candidatos independientes dentro de una plataforma común.</p>
+          <div class="section-share">
+            <a href="https://wa.me/?text=https://nopartidistacuba.org/#blog" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://nopartidistacuba.org/#blog" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <button type="button" onclick="copyShareLink('https://nopartidistacuba.org/#blog')">Copiar enlace</button>
+          </div>
+        </div>
+        <div class="blog-layout-home">
+          <div class="blog-grid">
+            <article class="blog-tile">
+              <div class="blog-thumb thumb-cobalt"><div class="blog-thumb-number">07</div></div>
+              <div class="blog-copy">
+                <div class="blog-meta">Blog No. 07</div>
+                <h3>Reconocer el bien, venga de donde venga</h3>
+                <p>Una reflexión sobre madurez cívica y la necesidad de evaluar ideas y acciones por su valor real, no por el bando del que provengan.</p>
+                <a class="blog-link" href="blog7.html">Leer artículo</a>
+              </div>
+            </article>
+            <article class="blog-tile">
+              <div class="blog-thumb thumb-lilac"><div class="blog-thumb-number">06</div></div>
+              <div class="blog-copy">
+                <h3>La Cuba futura tendrá que aprender a convivir con la diferencia</h3>
+                <p>Una reflexión sobre coexistencia democrática, pluralismo y la necesidad de que una Cuba libre aprenda a vivir con ideas diversas.</p>
+                <a class="blog-link" href="blog6.html">Leer artículo</a>
+              </div>
+            </article>
+            <article class="blog-tile">
+              <div class="blog-thumb thumb-green"><div class="blog-thumb-number">05</div></div>
+              <div class="blog-copy">
+                <h3>“Con todos y para el bien de todos”</h3>
+                <p>Una reflexión sobre Martí, la coherencia del pluralismo y la necesidad de construir una Cuba democrática verdaderamente con todos.</p>
+                <a class="blog-link" href="blog5.html">Leer artículo</a>
+              </div>
+            </article>
+            <article class="blog-tile">
+              <div class="blog-thumb thumb-blue"><div class="blog-thumb-number">04</div></div>
+              <div class="blog-copy">
+                <h3>“No hay izquierda ni derecha, solo húngaros”</h3>
+                <p>Una reflexión sobre unidad nacional, pluralismo y el sueño de escuchar algún día en Cuba una convocatoria democrática por encima de las etiquetas.</p>
+                <a class="blog-link" href="blog4.html">Leer artículo</a>
+              </div>
+            </article>
+            <article class="blog-tile">
+              <div class="blog-thumb thumb-yellow"><div class="blog-thumb-number">01</div></div>
+              <div class="blog-copy">
+                <h3>El no partidismo ante la polarización global</h3>
+                <p>Un análisis del panorama político actual que explica las razones del no partidismo como vía alternativa.</p>
+                <a class="blog-link" href="blog2.html">Leer artículo</a>
+              </div>
+            </article>
+            <article class="blog-tile">
+              <div class="blog-thumb thumb-pink"><div class="blog-thumb-number">02</div></div>
+              <div class="blog-copy">
+                <h3>Candidatos independientes y la vía plural</h3>
+                <p>Cómo pueden los candidatos independientes construir una plataforma de gobierno común desde ENTRE TODOS.</p>
+                <a class="blog-link" href="blog3.html">Leer artículo</a>
+              </div>
+            </article>
+            <article class="blog-tile">
+              <div class="blog-thumb thumb-purple"><div class="blog-thumb-number">03</div></div>
+              <div class="blog-copy">
+                <h3>El no partidismo como identidad política</h3>
+                <p>La identidad de quienes participan basándose en principios y soluciones, no en siglas.</p>
+                <a class="blog-link" href="blog1.html">Leer artículo</a>
+              </div>
+            </article>
+          </div>
+          <aside class="blog-sidebox">
+            <h3>Índice de blogs</h3>
+            <ol>
+              <li><a href="blog7.html">No. 07, Reconocer el bien, venga de donde venga</a></li>
+              <li><a href="blog6.html">No. 06, La Cuba futura tendrá que aprender a convivir con la diferencia</a></li>
+              <li><a href="blog5.html">No. 05, “Con todos y para el bien de todos”</a></li>
+              <li><a href="blog4.html">No. 04, “No hay izquierda ni derecha, solo húngaros”</a></li>
+              <li><a href="blog2.html">No. 01, El no partidismo ante la polarización global</a></li>
+              <li><a href="blog3.html">No. 02, Candidatos independientes y la vía plural</a></li>
+              <li><a href="blog1.html">No. 03, El no partidismo como identidad política</a></li>
+            </ol>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="que-es">
+      <div class="section-inner">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Qué significa NP</div>
+            <h2>No partidismo pluralista</h2>
+          </div>
+          <p class="section-intro">NP reconoce la diversidad política cubana. Cada color puede contener propuestas útiles. La pregunta central es cuál solución funciona mejor para cada problema.</p>
+        </div>
+        <div class="cards">
+          <article class="card blue">
+            <i class="watermark fi fi-br-bulb"></i>
+            <i class="fi fi-br-bulb"></i>
+            <h3>Soluciones antes que etiquetas</h3>
+            <p>Cada propuesta se evalúa por su mérito, no por el partido, grupo o figura que la presenta.</p>
+          </article>
+          <article class="card red">
+            <i class="watermark fi fi-br-apps-sort"></i>
+            <i class="fi fi-br-apps-sort"></i>
+            <h3>Sin paquete cerrado</h3>
+            <p>Un país no tiene que aceptar todas las ideas de un solo bando para poder avanzar.</p>
+          </article>
+          <article class="card yellow">
+            <i class="watermark fi fi-br-palette"></i>
+            <i class="fi fi-br-palette"></i>
+            <h3>Diversidad política</h3>
+            <p>Los colores políticos no se borran. Se reconocen, se comparan y se aprovecha lo mejor de cada uno.</p>
+          </article>
+          <article class="card green">
+            <i class="watermark fi fi-br-users-alt"></i>
+            <i class="fi fi-br-users-alt"></i>
+            <h3>Participación abierta</h3>
+            <p>Pueden entrar propuestas de partidos, independientes, organizaciones, especialistas y ciudadanos.</p>
+          </article>
+          <article class="card purple">
+            <i class="watermark fi fi-br-shield-check"></i>
+            <i class="fi fi-br-shield-check"></i>
+            <h3>Menos tribalismo</h3>
+            <p>El debate se mueve de la fidelidad de grupo hacia la evidencia, el impacto y la responsabilidad pública.</p>
+          </article>
+          <article class="card orange">
+            <i class="watermark fi fi-br-chart-histogram"></i>
+            <i class="fi fi-br-chart-histogram"></i>
+            <h3>Mejor plataforma</h3>
+            <p>La propuesta final se construye con soluciones superiores por área, no por obediencia a una sola bandera.</p>
+          </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contrast" id="diversidad">
+      <div class="section-inner">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Diversidad política cubana</div>
+            <h2>Cada color puede aportar</h2>
+          </div>
+          <p class="section-intro">Al pluralista no le interesa convertir el color político en frontera. Le interesa descubrir qué hay de útil, ético, viable y beneficioso dentro de cada propuesta.</p>
+        </div>
+        <div class="spectrum" aria-label="Espectro pluralista NP">
+          <div class="spectrum-card bg-blue"><i class="watermark fi fi-br-bank"></i><i class="fi fi-br-bank"></i><strong>Instituciones</strong></div>
+          <div class="spectrum-card bg-yellow"><i class="watermark fi fi-br-balance-scale-left"></i><i class="fi fi-br-balance-scale-left"></i><strong>Justicia social</strong></div>
+          <div class="spectrum-card bg-red"><i class="watermark fi fi-br-bulb"></i><i class="fi fi-br-bulb"></i><strong>Innovación</strong></div>
+          <div class="spectrum-card bg-purple"><i class="watermark fi fi-br-users-alt"></i><i class="fi fi-br-users-alt"></i><strong>Derechos y pluralidad</strong></div>
+          <div class="spectrum-card bg-green"><i class="watermark fi fi-br-leaf"></i><i class="fi fi-br-leaf"></i><strong>Entorno y vida</strong></div>
+          <div class="spectrum-card bg-orange"><i class="watermark fi fi-br-briefcase"></i><i class="fi fi-br-briefcase"></i><strong>Trabajo y producción</strong></div>
+        </div>
+        <div class="comparison">
+          <article class="panel party">
+            <div class="panel-label"><i class="fi fi-br-box-open"></i> Lógica partidista cerrada</div>
+            <h3>El color decide primero</h3>
+            <p>La propuesta se mira a través de la pertenencia: de qué lado viene, a qué grupo fortalece y qué identidad representa.</p>
+          </article>
+          <article class="panel np">
+            <div class="panel-label"><i class="fi fi-br-puzzle-piece"></i> Lógica NP pluralista</div>
+            <h3>La solución decide primero</h3>
+            <p>La propuesta se mira por su calidad: qué problema resuelve, a quién beneficia, qué daño evita y cómo puede verificarse.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="argumento">
+      <div class="section-inner">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Una decisión más inteligente</div>
+            <h2>La lógica del paquete político</h2>
+          </div>
+          <p class="section-intro">La política tradicional suele presentar programas cerrados. NP propone una forma más abierta: escoger las mejores soluciones tema por tema, sin obligar a nadie a aceptar un paquete completo.</p>
+        </div>
+        <div class="manifesto">
+          <div class="manifesto-flag" aria-hidden="true"></div>
+          <div class="manifesto-text">
+            <h2>Una plataforma común con propuestas de muchos colores</h2>
+            <p><strong>El no partidismo no excluye a los partidos.</strong> Les quita el privilegio automático de decidir qué soluciones cuentan y cuáles quedan fuera.</p>
+            <p>Una propuesta liberal puede ser la mejor en un área, una socialdemócrata en otra, una conservadora en otra, una ecologista en otra, y una independiente en otra. NP permite combinarlas sin obligar al ciudadano a comprar un paquete ideológico completo.</p>
+            <p>La medida no es la bandera. La medida es el beneficio público, la viabilidad, la ética y el impacto real sobre la vida de la gente.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="vision">
+      <div class="section-inner">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Visión de país</div>
+            <h2>La Cuba que soñemos entre todos</h2>
+          </div>
+          <p class="section-intro">La visión de país y la plataforma de gobierno no salen de un partido ni de una cúpula. Se construyen desde la plataforma cívica ENTRE TODOS, con propuestas abiertas, comparación pública y participación ciudadana.</p>
+        </div>
+        <div class="vision-dream">
+          <div class="manifesto-flag" aria-hidden="true"></div>
+          <div class="manifesto-text">
+            <h2>No la visión de un partido. La visión de todos.</h2>
+            <p><strong>Nuestra visión es la mejor Cuba que seamos capaces de soñar ENTRE TODOS.</strong> Una Cuba libre, plural, funcional y digna, donde ningún cubano se quiera ir por falta de futuro y donde quienes se fueron puedan desear regresar.</p>
+            <p>NP asume que la plataforma de gobierno debe nacer de un proceso cívico abierto: escuchar, comparar, priorizar y articular las mejores soluciones para reconstruir, restaurar, rediseñar, reformar y renovar la nación.</p>
+            <p>No se trata de imponer la plataforma de un partido, sino de construir una plataforma común para el país: una Cuba con instituciones fuertes, derechos garantizados, justicia social responsable, economía productiva, educación moderna, salud digna, protección del entorno y participación ciudadana real.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="candidatos">
+      <div class="section-inner">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Candidatos presidenciales independientes</div>
+            <h2>La vía plural de gobierno</h2>
+          </div>
+          <p class="section-intro">NP propone que Cuba pueda tener candidatos presidenciales independientes comprometidos con una Plataforma Plural Ciudadana generada en ENTRE TODOS, no con un paquete partidista cerrado.</p>
+        </div>
+        <div class="cards">
+          <article class="card blue">
+            <i class="watermark fi fi-br-user-crown"></i>
+            <i class="fi fi-br-user-crown"></i>
+            <h3>Independientes puros</h3>
+            <p>Personas que no actúan como representantes de una maquinaria partidista y aceptan gobernar con mandato ciudadano-plural.</p>
+          </article>
+          <article class="card yellow">
+            <i class="watermark fi fi-br-handshake"></i>
+            <i class="fi fi-br-handshake"></i>
+            <h3>Compromiso plural</h3>
+            <p>El candidato firma neutralidad institucional, transparencia pública y compromiso con la plataforma construida por la ciudadanía.</p>
+          </article>
+          <article class="card green">
+            <i class="watermark fi fi-br-balance-scale-left"></i>
+            <i class="fi fi-br-balance-scale-left"></i>
+            <h3>Control ciudadano</h3>
+            <p>Quien recibe aval plural acepta seguimiento, auditoría, revisión de conflictos de interés y posible pérdida del respaldo ciudadano.</p>
+          </article>
+        </div>
+        <div class="comparison" style="margin-top:18px;">
+          <article class="panel party">
+            <div class="panel-label"><i class="fi fi-br-flag"></i> Vía partidista</div>
+            <h3>Representa un programa propio</h3>
+            <p>Defiende una sigla, una base organizada y una agenda de partido. Esa vía debe existir en democracia, pero no debe ser la única puerta para gobernar.</p>
+          </article>
+          <article class="panel np">
+            <div class="panel-label"><i class="fi fi-br-users-alt"></i> Vía plural no partidista</div>
+            <h3>Representa una plataforma común</h3>
+            <p>El mandato no viene de una sigla, sino de una Plataforma Plural Ciudadana: propuestas recogidas, comparadas y priorizadas en ENTRE TODOS.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="puentes">
+      <div class="section-inner">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Puentes democráticos</div>
+            <h2>Partidos sí. Captura del país no.</h2>
+          </div>
+          <p class="section-intro">La vía plural no le pide a nadie romper con su casa política. Le propone una mesa común donde las mejores soluciones puedan servir al país, vengan de donde vengan.</p>
+        </div>
+        <div class="process">
+          <article class="step blue">
+            <h3>Derecho a afiliarse</h3>
+            <p>En una Cuba libre, cada ciudadano debe poder fundar, integrar o apoyar un partido.</p>
+          </article>
+          <article class="step green">
+            <h3>Derecho a no afiliarse</h3>
+            <p>La democracia también debe reconocer el derecho a participar políticamente sin pertenecer a ningún partido.</p>
+          </article>
+          <article class="step yellow">
+            <h3>Candidatos habilitables</h3>
+            <p>Un candidato con identidad partidista puede solicitar habilitación plural si acepta gobernar con la plataforma común.</p>
+          </article>
+          <article class="step purple">
+            <h3>Prioridad independiente</h3>
+            <p>Los independientes puros tienen prioridad para evitar que la vía plural sea absorbida por maquinarias partidistas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="consulta-plural">
+      <div class="section-inner">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Señal ciudadana</div>
+            <h2>¿Lo quieres por la vía plural?</h2>
+          </div>
+          <p class="section-intro">ENTRE TODOS puede consultar qué candidatos —independientes o partidistas— la ciudadanía quisiera ver comprometidos con la vía plural y la Plataforma Plural Ciudadana.</p>
+        </div>
+        <div class="manifesto">
+          <div class="manifesto-flag" aria-hidden="true"></div>
+          <div class="manifesto-text">
+            <h2>Primero ciudadanos. Después electores.</h2>
+            <p><strong>Antes de preguntar quién debe gobernar, ayudemos a decidir qué necesita Cuba.</strong> La consulta no obliga ni descalifica a ningún candidato: envía una señal pública de interés ciudadano.</p>
+            <p>Los ciudadanos podrían indicar si desean que exista una vía plural no partidista, si quisieran que su candidato pueda optar por ella y si aumentaría su disposición a votarlo en caso de aceptar la Plataforma Plural.</p>
+            <p>No tienes que dejar de querer a tu partido para querer que Cuba sea gobernada desde una plataforma común.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="metodo">
+      <div class="section-inner">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Cómo funciona</div>
+            <h2>De la propuesta a la plataforma</h2>
+          </div>
+          <p class="section-intro">NP propone una lógica sencilla: abrir, comparar, elegir y comprometer. Menos culto al bando, más responsabilidad con las soluciones.</p>
+        </div>
+        <div class="process">
+          <article class="step blue">
+            <h3>Recibir propuestas</h3>
+            <p>Se aceptan soluciones de ciudadanos, especialistas, organizaciones, independientes y partidos.</p>
+          </article>
+          <article class="step red">
+            <h3>Comparar con criterios</h3>
+            <p>Cada propuesta se mide por impacto, viabilidad, transparencia, justicia y beneficio público.</p>
+          </article>
+          <article class="step green">
+            <h3>Seleccionar por área</h3>
+            <p>La mejor propuesta de cada tema puede venir de lugares distintos. Esa pluralidad fortalece la plataforma.</p>
+          </article>
+          <article class="step purple">
+            <h3>Crear plataforma común</h3>
+            <p>El resultado es una plataforma integrada por soluciones superiores, no por fidelidad a un solo bloque.</p>
+          </article>
+        </div>
+        <div class="cta-band" id="afiliate">
+          <div>
+            <div class="kicker">Participa</div>
+            <h2>Si te identificas con esta alternativa, afíliate a NP</h2>
+            <p>Únete a una vía no partidista, pluralista y cívica para construir una plataforma común con las mejores soluciones para Cuba, vengan del color político que vengan.</p>
+          </div>
+          <a class="btn-primary" href="afiliacion.html"><i class="fi fi-br-user-add"></i> Afiliarme</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div><strong>NP</strong> | Alternativa No Partidista de Cuba</div>
+        <div>Mirar las soluciones, no el color político de donde vienen.</div>
+      </div>
+    </footer>
+  </main>
+  <script>
+    function copyShareLink(url) {
+      navigator.clipboard.writeText(url).then(() => {
+        alert('Enlace copiado');
+      }).catch(() => {
+        alert(url);
+      });
+    }
+  </script>
+</body>
+</html>

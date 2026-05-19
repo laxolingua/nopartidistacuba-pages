@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El no partidismo ante la polarización global – NP Blog</title>
+    <meta name="description" content="Un análisis del panorama político actual que explica las razones del no partidismo como vía alternativa.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="El no partidismo ante la polarización global">
+    <meta property="og:description" content="Un análisis del panorama político actual que explica las razones del no partidismo como vía alternativa.">
+    <meta property="og:url" content="https://nopartidistacuba.org/blog2.html">
+    <meta property="og:image" content="https://nopartidistacuba.org/images/share/np-share-blog-01.png">
+    <meta name="twitter:image" content="https://nopartidistacuba.org/images/share/np-share-blog-01.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="El no partidismo ante la polarización global">
+    <meta name="twitter:description" content="Un análisis del panorama político actual que explica las razones del no partidismo como vía alternativa.">
+
+    <style>
+        :root {
+            --primary: #0a3d62;
+            --secondary: #f5f6fa;
+            --accent: #1e90ff;
+        }
+        body {
+            margin: 0;
+            font-family: 'Inter', Arial, sans-serif;
+            background: var(--secondary);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px clamp(20px, 5vw, 72px);
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(6,58,140,0.10);
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 900;
+            color: #03245C;
+            text-decoration: none;
+        }
+        .brand-mark {
+            width: 52px;
+            height: 52px;
+            display: block;
+            object-fit: contain;
+            flex-shrink: 0;
+            border-radius: 24%;
+            filter: drop-shadow(0 14px 34px rgba(6,58,140,0.20));
+        }
+        .brand-text span {
+            display: block;
+            line-height: 1;
+        }
+        .brand-text .small {
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #3C4554;
+        }
+        .brand-text .name {
+            font-size: 18px;
+            letter-spacing: -0.02em;
+            color: #03245C;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            font-size: 15px;
+            font-weight: 800;
+        }
+        .nav-links a {
+            color: #03245C;
+            text-decoration: none;
+        }
+        .nav-cta {
+            padding: 12px 18px;
+            background: #FDBA22;
+            color: #03245C !important;
+            border-radius: 999px;
+            font-weight: 900;
+        }
+        @media (max-width: 900px) {
+            .site-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 14px;
+            }
+        }
+        .post-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        .post-header {
+            /* Fondo gradiente acorde al tema de polarización global */
+            background-image: linear-gradient(135deg, #FFC857, #FF9A00);
+            color: #fff;
+            padding: 2rem;
+            border-radius: 12px 12px 0 0;
+        }
+        .post-header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        .post-content {
+            padding: 2rem;
+        }
+        .post-content h2 {
+            margin-top: 2rem;
+            font-size: 1.4rem;
+            color: var(--primary);
+        }
+        .post-content p {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .post-content ul {
+            margin-left: 1.5rem;
+            list-style-type: disc;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 1rem 0 0 2rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+            .share-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1.5rem 0 0;
+        }
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.75rem 1rem;
+            border-radius: 999px;
+            background: #eef5ff;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            border: 0;
+            cursor: pointer;
+        }
+
+            .comments-box {
+            margin: 2rem auto 0;
+            max-width: 800px;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        .comments-box h2 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .comment-form input, .comment-form textarea {
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .comment-form button {
+            align-self: flex-start;
+            padding: 0.8rem 1.2rem;
+            border: 0;
+            border-radius: 999px;
+            background: #0B78D0;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .comment-note {
+            color: #4b5563;
+            font-size: 0.95rem;
+        }
+        .comment-status {
+            display: none;
+            margin-top: 0.75rem;
+            padding: 0.85rem 1rem;
+            border-radius: 10px;
+            font-size: 0.95rem;
+        }
+        .comment-status.success {
+            display: block;
+            background: #eefbf3;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+        .comment-status.error {
+            display: block;
+            background: #fef2f2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="site-nav" aria-label="Navegación principal">
+        <a href="index.html" class="brand" aria-label="NP Alternativa No Partidista de Cuba">
+            <img class="brand-mark" src="images/np-logo-2026.jpg" alt="NP Alternativa No Partidista de Cuba">
+            <div class="brand-text">
+                <span class="small">Alternativa</span>
+                <span class="name">No Partidista de Cuba</span>
+            </div>
+        </a>
+        <div class="nav-links">
+            <a href="index.html#que-es">Qué es</a>
+            <a href="index.html#diversidad">Diversidad política</a>
+            <a href="index.html#argumento">Argumento</a>
+            <a href="index.html#metodo">Método</a>
+            <a href="index.html#blog">Blog</a>
+            <a class="nav-cta" href="afiliacion.html">Afíliate</a>
+        </div>
+    </nav>
+    <div class="post-container">
+        <div class="post-header">
+            <h1>El no partidismo ante la polarización global</h1>
+        </div>
+        <div class="post-content">
+            <p>El panorama político mundial atraviesa un momento de fuerte polarización. Las líneas ideológicas se endurecen, los grupos se encierran en sus trincheras y el diálogo constructivo se vuelve cada vez más difícil. Este fenómeno no es exclusivo de un país; es una tendencia global que afecta a democracias consolidadas y emergentes por igual.</p>
+            <p>En este contexto, el no partidismo surge como una respuesta crítica al deterioro de la convivencia democrática. No se trata de negar el derecho de los partidos a existir ni de abogar por un vacío político. Se trata de preguntarse si el sistema de lealtades cerradas y paquetes ideológicos predeterminados responde a los retos de nuestro tiempo.</p>
+            <h2>Un panorama marcado por la división</h2>
+            <p>La sensación de desencanto democrático no surge de la nada. Muchos ciudadanos se sienten incómodos ante prácticas que van más allá de la competencia saludable. Entre las características que alimentan este malestar se encuentran:</p>
+            <ul>
+                <li><strong>Polarización extrema y tribalismo político</strong>: la identidad partidaria se confunde con identidad moral. Se rechazan automáticamente ideas o propuestas del “otro lado”, independientemente de sus méritos.</li>
+                <li><strong>Demonización del oponente</strong>: el adversario ya no es alguien con quien discrepo, sino alguien que debe ser derrotado, humillado o expulsado del espacio público.</li>
+                <li><strong>Parálisis legislativa y cortoplacismo</strong>: la división se traduce en bloqueo de leyes importantes y en políticas reversibles cada vez que cambia la mayoría, generando inestabilidad y cansancio social.</li>
+                <li><strong>Predominio de la ideología sobre la evidencia</strong>: las decisiones se toman en función de una lealtad partidista y no de la mejor información disponible.</li>
+                <li><strong>Politización de temas técnicos y manipulación de la información</strong>: cuestiones que deberían resolverse con criterios científicos se convierten en campos de batalla ideológica, y las noticias falsas se usan como herramienta de lucha.</li>
+                <li><strong>Erosión de la confianza institucional</strong>: la crítica permanente y la rivalidad electoral minan la legitimidad de los poderes públicos y de la propia democracia.</li>
+            </ul>
+            <h2>¿Por qué optar por el no partidismo?</h2>
+            <p>El no partidismo no promete un mundo sin conflicto ni diferencias. Su propuesta es más modesta y a la vez más ambiciosa: construir acuerdos desde la diversidad sin convertir cada debate en una guerra de bandos. Quienes optan por el no partidismo lo hacen porque:</p>
+            <ul>
+                <li>Buscan evaluar cada propuesta por su mérito, su viabilidad y su impacto real, no por el color de quien la presenta.</li>
+                <li>Quieren participar en la vida pública sin sentirse obligados a suscribir todas las ideas de un bloque. Rechazan la lógica del paquete cerrado.</li>
+                <li>Prefieren una política capaz de aceptar que un partido puede acertar en un área y errar en otra. Quieren preservar lo bueno de cada corriente sin adoptar lo malo por disciplina.</li>
+                <li>Entienden que la gobernanza efectiva requiere compromisos y miradas a largo plazo, no giros pendulares cada cuatro años.</li>
+            </ul>
+            <p>Elegir el no partidismo no implica desconocer el valor de las organizaciones políticas. Significa reconocer también el derecho a participar como ciudadano sin banderas. La democracia moderna debería ser lo suficientemente generosa como para acoger ambas formas de participación.</p>
+            <h2>No contra los partidos, sino más allá de ellos</h2>
+            <p>Es importante subrayar que el no partidismo pluralista no es un ataque a los partidos. Los partidos son actores legítimos de la vida democrática. La Alternativa No Partidista de Cuba sostiene que una Cuba libre debe garantizar simultáneamente el derecho a fundar e integrar partidos y el derecho a no afiliarse a ninguno. No se busca sustituir un dogma por otro. Se busca ofrecer un camino complementario: el camino de quienes quieren construir una plataforma común <em>entre todos</em>, tomando lo mejor de cada color político, sin renunciar a su identidad personal ni a su libertad crítica.</p>
+            <p>En un mundo saturado de enfrentamientos ideológicos y estrategias de poder, el no partidismo reivindica la política como espacio de soluciones, no como terreno de batalla permanente. Tal vez allí resida su atractivo: en la posibilidad de imaginar un país gobernado por la mejor combinación de ideas, no por el bando que se imponga en una coyuntura electoral.</p>
+                    <div class="share-row">
+                <a class="share-btn" href="https://wa.me/?text=El no partidismo ante la polarización global https://nopartidistacuba.org/blog2.html" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://nopartidistacuba.org/blog2.html" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <button class="share-btn" type="button" onclick="copyShareLink('https://nopartidistacuba.org/blog2.html')">Copiar enlace</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="comments-box">
+        <h2>Comentarios</h2>
+        <p class="comment-note">Puedes dejar tu comentario. Se guarda con moderación previa antes de publicarse.</p>
+        <form class="comment-form" data-blog-slug="blog2" data-blog-number="1" data-blog-title="El no partidismo ante la polarización global" onsubmit="submitNpComment(event)">
+            <input type="text" name="display_name" placeholder="Tu nombre" required>
+            <input type="email" name="email" placeholder="Correo electrónico (opcional)">
+            <input type="text" name="location" placeholder="Ciudad / país (opcional)">
+            <textarea name="comment_body" rows="5" placeholder="Escribe tu comentario" required></textarea>
+            <button type="submit">Enviar comentario</button>
+            <div class="comment-status"></div>
+        </form>
+    </div>
+
+    <a class="back-link" href="blog.html">← Volver al blog</a>
+
+    
+    <script>
+        const NP_SUPABASE_URL = '"https://pfjcumyygdwslwtrlebr.supabase.co"';
+        const NP_SUPABASE_ANON_KEY = '"sb_publishable_gaor3DqGUprtjEQOmijZeQ_52oV_og8"';
+
+        function copyShareLink(url) {
+            navigator.clipboard.writeText(url).then(() => {
+                alert('Enlace copiado');
+            }).catch(() => {
+                alert(url);
+            });
+        }
+
+        async function submitNpComment(event) {
+            event.preventDefault();
+            const form = event.target;
+            const status = form.querySelector('.comment-status');
+            const fd = new FormData(form);
+            status.className = 'comment-status';
+            status.style.display = 'block';
+            status.textContent = 'Enviando...';
+            const payload = {
+                blog_slug: form.dataset.blogSlug,
+                blog_number: Number(form.dataset.blogNumber),
+                blog_title: form.dataset.blogTitle,
+                display_name: fd.get('display_name') || '',
+                email: fd.get('email') || null,
+                location: fd.get('location') || null,
+                comment_body: fd.get('comment_body') || ''
+            };
+            try {
+                const resp = await fetch(`${NP_SUPABASE_URL}/rest/v1/np_blog_comments`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'apikey': NP_SUPABASE_ANON_KEY,
+                        'Authorization': `Bearer ${NP_SUPABASE_ANON_KEY}`
+                    },
+                    body: JSON.stringify(payload)
+                });
+                if (!resp.ok) throw new Error(await resp.text());
+                form.reset();
+                status.className = 'comment-status success';
+                status.textContent = 'Tu comentario fue enviado y quedará pendiente de moderación.';
+            } catch (err) {
+                console.error(err);
+                status.className = 'comment-status error';
+                status.textContent = 'No se pudo enviar el comentario. Intenta de nuevo más tarde.';
+            }
+        }
+    </script>
+
+</body>
+</html>
