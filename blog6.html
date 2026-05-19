@@ -131,7 +131,24 @@
             color: #fff;
             padding: 2rem;
             border-radius: 32px 32px 0 0;
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
         }
+        .post-header::after {
+            content: "";
+            position: absolute;
+            right: -88px;
+            bottom: -108px;
+            width: 360px;
+            height: 360px;
+            background: url('images/np-logo-white-front.png') center/contain no-repeat;
+            opacity: 0.18;
+            transform: rotate(-16deg);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .post-header > *,
         .post-header,
         .post-content {
             position: relative;
