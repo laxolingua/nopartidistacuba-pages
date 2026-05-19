@@ -220,6 +220,19 @@
         .post .thumb::before {
             content: none;
         }
+        .post .thumb::after {
+            content: "";
+            position: absolute;
+            right: -68px;
+            bottom: -82px;
+            width: 270px;
+            height: 270px;
+            background: url('images/np-logo-white-front.png') center/contain no-repeat;
+            opacity: 0.18;
+            transform: rotate(-16deg);
+            pointer-events: none;
+            z-index: 1;
+        }
         .thumb-number {
             position: absolute;
             left: 18px;
