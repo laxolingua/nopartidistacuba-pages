@@ -114,38 +114,82 @@
             gap: 2rem;
             align-items: start;
         }
+        .blog-toolbar {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.9rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.78);
+            border: 1px solid rgba(6,58,140,0.08);
+            border-radius: 22px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        .toolbar-field label {
+            display: block;
+            margin-bottom: 0.35rem;
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #506070;
+        }
+        .toolbar-field input,
+        .toolbar-field select {
+            width: 100%;
+            padding: 0.8rem 0.95rem;
+            border: 1px solid #d6dfec;
+            border-radius: 14px;
+            font-size: 0.98rem;
+            background: #fff;
+            color: #16324a;
+            box-sizing: border-box;
+        }
+        .toolbar-note {
+            margin: 0 0 1.25rem;
+            font-size: 0.95rem;
+            color: #5b6677;
+        }
         .post-list {
             display: flex;
             flex-direction: column;
             gap: 2rem;
         }
         .post {
-            background: #fff;
-            border-radius: var(--card-radius);
+            position: relative;
+            background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+            border-radius: 28px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.08);
             display: flex;
             flex-direction: row;
-            overflow: hidden;
+            overflow: visible;
+            isolation: isolate;
+        }
+        .post::before {
+            content: "";
+            position: absolute;
+            right: -86px;
+            bottom: -96px;
+            width: 320px;
+            height: 320px;
+            background: url('images/np-logo-white-front.png') center/contain no-repeat;
+            opacity: 0.14;
+            transform: rotate(-18deg);
+            pointer-events: none;
+            z-index: 0;
         }
         /* Ajuste de miniaturas para listado de artículos */
         .post .thumb {
             width: 250px;
             min-height: 200px;
-            border-top-left-radius: var(--card-radius);
-            border-bottom-left-radius: var(--card-radius);
+            border-top-left-radius: 28px;
+            border-bottom-left-radius: 28px;
             position: relative;
             overflow: hidden;
+            z-index: 1;
         }
         .post .thumb::before {
-            content: "NP";
-            position: absolute;
-            right: -10px;
-            bottom: -34px;
-            font-size: 130px;
-            font-weight: 900;
-            letter-spacing: 0.01em;
-            color: rgba(255,255,255,0.18);
-            transform: rotate(-14deg);
+            content: none;
         }
         .thumb-number {
             position: absolute;
@@ -191,6 +235,8 @@
             flex: 1;
             display: flex;
             flex-direction: column;
+            position: relative;
+            z-index: 1;
         }
         .post-number {
             display: inline-block;
@@ -206,6 +252,22 @@
             margin-bottom: 0.7rem;
             font-size: 0.95rem;
             color: #6b7280;
+        }
+        .post-meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+            margin-bottom: 0.9rem;
+        }
+        .meta-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.42rem 0.72rem;
+            border-radius: 999px;
+            background: #eef5ff;
+            color: #20415f;
+            font-size: 0.82rem;
+            font-weight: 700;
         }
         .post-content h2 {
             margin: 0 0 0.5rem;
@@ -234,6 +296,19 @@
         .sidebar-box h3 {
             margin-top: 0;
             color: var(--primary);
+        }
+        .facet-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .facet-list li {
+            margin-bottom: 0.65rem;
+            color: #44556a;
+            font-size: 0.96rem;
+        }
+        .facet-list strong {
+            color: #03245C;
         }
         .blog-index {
             list-style: none;
@@ -266,6 +341,9 @@
             .blog-layout {
                 grid-template-columns: 1fr;
             }
+            .blog-toolbar {
+                grid-template-columns: 1fr 1fr;
+            }
         }
         @media (max-width: 768px) {
             .post {
@@ -275,6 +353,9 @@
                 width: 100%;
                 height: 200px;
                 border-radius: 12px 12px 0 0;
+            }
+            .blog-toolbar {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -300,76 +381,147 @@
     <div class="container">
         <h1>Blog NP</h1>
         <p class="intro">Una biblioteca breve para desarrollar la idea no partidista, ubicar textos por número, fecha y tema, y facilitar futuras referencias como “Blog No. 20”.</p>
+        <div class="blog-toolbar" aria-label="Filtros del blog">
+            <div class="toolbar-field">
+                <label for="blog-search">Buscar</label>
+                <input id="blog-search" type="search" placeholder="Título, categoría o tag">
+            </div>
+            <div class="toolbar-field">
+                <label for="blog-category">Categoría</label>
+                <select id="blog-category">
+                    <option value="all">Todas</option>
+                    <option value="cultura-civica">Cultura cívica</option>
+                    <option value="convivencia-democratica">Convivencia democrática</option>
+                    <option value="etica-republicana">Ética republicana</option>
+                    <option value="referencias-internacionales">Referencias internacionales</option>
+                    <option value="identidad-politica">Identidad política</option>
+                    <option value="via-plural">Vía plural</option>
+                    <option value="polarizacion-global">Polarización global</option>
+                </select>
+            </div>
+            <div class="toolbar-field">
+                <label for="blog-author">Autor</label>
+                <select id="blog-author">
+                    <option value="all">Todos</option>
+                    <option value="equipo-np">Equipo NP</option>
+                </select>
+            </div>
+            <div class="toolbar-field">
+                <label for="blog-sort">Ordenar por</label>
+                <select id="blog-sort">
+                    <option value="recent">Más recientes</option>
+                    <option value="oldest">Más antiguos</option>
+                    <option value="number-desc">Número más alto</option>
+                    <option value="number-asc">Número más bajo</option>
+                </select>
+            </div>
+        </div>
+        <p class="toolbar-note" id="blog-results-note">Mostrando 7 artículos.</p>
         <div class="blog-layout">
-            <div class="post-list">
-                <article class="post post-7">
+            <div class="post-list" id="blog-post-list">
+                <article class="post post-7" data-number="7" data-date="2026-05-19" data-author="equipo-np" data-category="cultura-civica" data-tags="bien comun madurez civica juicio ciudadano no partidismo">
                     <div class="thumb"><div class="thumb-number">07</div></div>
                     <div class="post-content">
                         <span class="post-number">Blog No. 07</span>
                         <span class="post-date">Publicado: 19 de mayo de 2026</span>
+                        <div class="post-meta-row">
+                            <span class="meta-pill">Autor: Equipo NP</span>
+                            <span class="meta-pill">Categoría: Cultura cívica</span>
+                            <span class="meta-pill">Tags: bien común, juicio ciudadano</span>
+                        </div>
                         <h2>Reconocer el bien, venga de donde venga</h2>
                         <p>Una reflexión sobre madurez cívica, bien común y la necesidad de evaluar ideas y acciones por su valor real, no por el bando del que provengan.</p>
                         <a href="blog7.html">Leer artículo completo →</a>
                     </div>
                 </article>
-                <article class="post post-6">
+                <article class="post post-6" data-number="6" data-date="2026-05-10" data-author="equipo-np" data-category="convivencia-democratica" data-tags="convivencia diferencia pluralismo tolerancia cuba libre">
                     <div class="thumb"><div class="thumb-number">06</div></div>
                     <div class="post-content">
                         <span class="post-number">Blog No. 06</span>
                         <span class="post-date">Publicado: 10 de mayo de 2026</span>
+                        <div class="post-meta-row">
+                            <span class="meta-pill">Autor: Equipo NP</span>
+                            <span class="meta-pill">Categoría: Convivencia democrática</span>
+                            <span class="meta-pill">Tags: diferencia, pluralismo</span>
+                        </div>
                         <h2>La Cuba futura tendrá que aprender a convivir con la diferencia</h2>
                         <p>Una reflexión sobre coexistencia democrática, pluralismo y la necesidad de que una Cuba libre aprenda a vivir con ideas diversas, incluso opuestas.</p>
                         <a href="blog6.html">Leer artículo completo →</a>
                     </div>
                 </article>
-                <article class="post post-5">
+                <article class="post post-5" data-number="5" data-date="2026-05-10" data-author="equipo-np" data-category="etica-republicana" data-tags="marti etica republica pluralismo bien de todos">
                     <div class="thumb"><div class="thumb-number">05</div></div>
                     <div class="post-content">
                         <span class="post-number">Blog No. 05</span>
                         <span class="post-date">Publicado: 10 de mayo de 2026</span>
+                        <div class="post-meta-row">
+                            <span class="meta-pill">Autor: Equipo NP</span>
+                            <span class="meta-pill">Categoría: Ética republicana</span>
+                            <span class="meta-pill">Tags: Martí, bien de todos</span>
+                        </div>
                         <h2>“Con todos y para el bien de todos”: una frase que exige coherencia</h2>
                         <p>Una reflexión sobre Martí, la coherencia ética del pluralismo y la necesidad de una Cuba democrática construida verdaderamente con todos.</p>
                         <a href="blog5.html">Leer artículo completo →</a>
                     </div>
                 </article>
-                <article class="post post-4">
+                <article class="post post-4" data-number="4" data-date="2026-05-09" data-author="equipo-np" data-category="referencias-internacionales" data-tags="hungria peter magyar unidad nacional comparacion internacional">
                     <div class="thumb"><div class="thumb-number">04</div></div>
                     <div class="post-content">
                         <span class="post-number">Blog No. 04</span>
                         <span class="post-date">Publicado: 9 de mayo de 2026</span>
+                        <div class="post-meta-row">
+                            <span class="meta-pill">Autor: Equipo NP</span>
+                            <span class="meta-pill">Categoría: Referencias internacionales</span>
+                            <span class="meta-pill">Tags: Hungría, unidad nacional</span>
+                        </div>
                         <h2>“No hay izquierda ni derecha, solo húngaros”: el discurso de Péter Magyar y el sueño de una Cuba libre</h2>
                         <p>Una reflexión sobre unidad nacional, pluralismo y el deseo de escuchar algún día en Cuba una convocatoria democrática capaz de ponerse por encima de las etiquetas ideológicas.</p>
                         <a href="blog4.html">Leer artículo completo →</a>
                     </div>
                 </article>
-                <article class="post post-1">
-                    <div class="thumb"><div class="thumb-number">01</div></div>
+                <article class="post post-3" data-number="3" data-date="2026-05-09" data-author="equipo-np" data-category="identidad-politica" data-tags="identidad politica no partidismo ciudadania principios">
+                    <div class="thumb"><div class="thumb-number">03</div></div>
                     <div class="post-content">
-                        <span class="post-number">Blog No. 01</span>
+                        <span class="post-number">Blog No. 03</span>
                         <span class="post-date">Publicado: 9 de mayo de 2026</span>
-                        <h2>El no partidismo ante la polarización global</h2>
-                        <p>Un análisis del panorama político actual que explica las razones del no partidismo como vía alternativa.</p>
-                        <a href="blog2.html">Leer artículo completo →</a>
+                        <div class="post-meta-row">
+                            <span class="meta-pill">Autor: Equipo NP</span>
+                            <span class="meta-pill">Categoría: Identidad política</span>
+                            <span class="meta-pill">Tags: ciudadanía, principios</span>
+                        </div>
+                        <h2>El no partidismo como identidad política</h2>
+                        <p>La identidad de quienes participan basándose en principios y soluciones, no en siglas.</p>
+                        <a href="blog1.html">Leer artículo completo →</a>
                     </div>
                 </article>
-                <article class="post post-2">
+                <article class="post post-2" data-number="2" data-date="2026-05-09" data-author="equipo-np" data-category="via-plural" data-tags="candidatos independientes via plural plataforma comun">
                     <div class="thumb"><div class="thumb-number">02</div></div>
                     <div class="post-content">
                         <span class="post-number">Blog No. 02</span>
                         <span class="post-date">Publicado: 9 de mayo de 2026</span>
+                        <div class="post-meta-row">
+                            <span class="meta-pill">Autor: Equipo NP</span>
+                            <span class="meta-pill">Categoría: Vía plural</span>
+                            <span class="meta-pill">Tags: independientes, plataforma común</span>
+                        </div>
                         <h2>Candidatos independientes y la vía plural</h2>
                         <p>¿Cómo pueden los candidatos independientes construir una plataforma de gobierno común desde ENTRE TODOS?</p>
                         <a href="blog3.html">Leer artículo completo →</a>
                     </div>
                 </article>
-                <article class="post post-3">
-                    <div class="thumb"><div class="thumb-number">03</div></div>
+                <article class="post post-1" data-number="1" data-date="2026-05-09" data-author="equipo-np" data-category="polarizacion-global" data-tags="polarizacion global no partidismo analisis contexto">
+                    <div class="thumb"><div class="thumb-number">01</div></div>
                     <div class="post-content">
-                        <span class="post-number">Blog No. 03</span>
+                        <span class="post-number">Blog No. 01</span>
                         <span class="post-date">Publicado: 9 de mayo de 2026</span>
-                        <h2>El no partidismo como identidad política</h2>
-                        <p>La identidad de quienes participan basándose en principios y soluciones, no en siglas.</p>
-                        <a href="blog1.html">Leer artículo completo →</a>
+                        <div class="post-meta-row">
+                            <span class="meta-pill">Autor: Equipo NP</span>
+                            <span class="meta-pill">Categoría: Polarización global</span>
+                            <span class="meta-pill">Tags: polarización, contexto</span>
+                        </div>
+                        <h2>El no partidismo ante la polarización global</h2>
+                        <p>Un análisis del panorama político actual que explica las razones del no partidismo como vía alternativa.</p>
+                        <a href="blog2.html">Leer artículo completo →</a>
                     </div>
                 </article>
             </div>
@@ -381,30 +533,65 @@
                         <li><a href="blog6.html">No. 06, La Cuba futura tendrá que aprender a convivir con la diferencia</a></li>
                         <li><a href="blog5.html">No. 05, “Con todos y para el bien de todos”</a></li>
                         <li><a href="blog4.html">No. 04, “No hay izquierda ni derecha, solo húngaros”</a></li>
-                        <li><a href="blog2.html">No. 01, El no partidismo ante la polarización global</a></li>
-                        <li><a href="blog3.html">No. 02, Candidatos independientes y la vía plural</a></li>
                         <li><a href="blog1.html">No. 03, El no partidismo como identidad política</a></li>
+                        <li><a href="blog3.html">No. 02, Candidatos independientes y la vía plural</a></li>
+                        <li><a href="blog2.html">No. 01, El no partidismo ante la polarización global</a></li>
                     </ol>
                 </div>
                 <div class="sidebar-box">
-                    <h3>Tags / temas</h3>
-                    <div class="tag-list">
-                        <span class="tag">No partidismo</span>
-                        <span class="tag">Pluralismo</span>
-                        <span class="tag">Candidatos independientes</span>
-                        <span class="tag">Democracia</span>
-                        <span class="tag">Polarización</span>
-                        <span class="tag">Plataforma común</span>
-                        <span class="tag">Unidad nacional</span>
-                        <span class="tag">Cuba libre</span>
-                        <span class="tag">Martí</span>
-                        <span class="tag">Ética política</span>
-                        <span class="tag">Convivencia democrática</span>
-                        <span class="tag">Diferencia</span>
-                    </div>
+                    <h3>Facetas rápidas</h3>
+                    <ul class="facet-list">
+                        <li><strong>Autor:</strong> Equipo NP</li>
+                        <li><strong>Categorías:</strong> Cultura cívica, convivencia democrática, ética republicana, referencias internacionales, identidad política, vía plural, polarización global.</li>
+                        <li><strong>Orden sugerido:</strong> por fecha o por número de blog.</li>
+                        <li><strong>Búsqueda:</strong> escribe título, categoría o tag.</li>
+                    </ul>
                 </div>
             </aside>
         </div>
     </div>
+    <script>
+        (() => {
+            const list = document.getElementById('blog-post-list');
+            if (!list) return;
+            const posts = Array.from(list.querySelectorAll('.post'));
+            const search = document.getElementById('blog-search');
+            const category = document.getElementById('blog-category');
+            const author = document.getElementById('blog-author');
+            const sort = document.getElementById('blog-sort');
+            const note = document.getElementById('blog-results-note');
+            const applyFilters = () => {
+                const term = (search.value || '').trim().toLowerCase();
+                const selectedCategory = category.value;
+                const selectedAuthor = author.value;
+                const selectedSort = sort.value;
+                const filtered = posts.filter((post) => {
+                    const haystack = [post.querySelector('h2')?.textContent || '', post.dataset.category || '', post.dataset.tags || '', post.dataset.author || ''].join(' ').toLowerCase();
+                    const categoryOk = selectedCategory === 'all' || post.dataset.category === selectedCategory;
+                    const authorOk = selectedAuthor === 'all' || post.dataset.author === selectedAuthor;
+                    const termOk = !term || haystack.includes(term);
+                    return categoryOk && authorOk && termOk;
+                });
+                const sorted = filtered.sort((a, b) => {
+                    const dateA = a.dataset.date || '';
+                    const dateB = b.dataset.date || '';
+                    const numA = Number(a.dataset.number || 0);
+                    const numB = Number(b.dataset.number || 0);
+                    if (selectedSort === 'oldest') return dateA.localeCompare(dateB) || numA - numB;
+                    if (selectedSort === 'number-asc') return numA - numB;
+                    if (selectedSort === 'number-desc') return numB - numA;
+                    return dateB.localeCompare(dateA) || numB - numA;
+                });
+                posts.forEach((post) => { post.style.display = 'none'; });
+                sorted.forEach((post) => { post.style.display = ''; list.appendChild(post); });
+                note.textContent = `Mostrando ${sorted.length} artículo${sorted.length === 1 ? '' : 's'}.`;
+            };
+            [search, category, author, sort].forEach((control) => {
+                control.addEventListener('input', applyFilters);
+                control.addEventListener('change', applyFilters);
+            });
+            applyFilters();
+        })();
+    </script>
 </body>
 </html>
