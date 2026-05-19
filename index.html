@@ -246,7 +246,7 @@
     }
     .manifesto-flag { min-height: 420px; background: linear-gradient(135deg, #138A36 0%, #22B14C 100%); position: relative; overflow: hidden; }
     .manifesto-flag::before { content: ""; position: absolute; width: 420px; height: 420px; right: -180px; bottom: -180px; border-radius: 88px; background: rgba(255,255,255,.08); transform: rotate(-14deg); }
-    .manifesto-flag::after { content: "NP"; position: absolute; left: 30px; bottom: 6px; font-family: "Barlow", sans-serif; font-weight: 900; font-size: 190px; letter-spacing: 0.01em; color: rgba(255,255,255,.82); }
+    .manifesto-flag::after { content: ""; position: absolute; left: -46px; bottom: -74px; width: 520px; height: 520px; background: url("images/np-logo-white-front.png") no-repeat center/contain; opacity: .22; transform: rotate(-14deg); pointer-events: none; }
     .manifesto-text { padding: clamp(30px,5vw,56px); }
     .manifesto-text h2 { margin-bottom: 18px; color: #2F3A4A; }
     .manifesto:not(.vision-dream) .manifesto-text strong { color: #138A36; }
@@ -278,15 +278,16 @@
       transform: rotate(-14deg);
     }
     .vision-dream .manifesto-flag::after {
-      content: "NP";
+      content: "";
       position: absolute;
-      left: 30px;
-      bottom: 6px;
-      font-family: "Barlow", sans-serif;
-      font-weight: 900;
-      font-size: 190px;
-      letter-spacing: 0.01em;
-      color: rgba(255,255,255,.80);
+      left: -54px;
+      bottom: -80px;
+      width: 540px;
+      height: 540px;
+      background: url("images/np-logo-white-front.png") no-repeat center/contain;
+      opacity: .24;
+      transform: rotate(-14deg);
+      pointer-events: none;
     }
     .vision-dream .manifesto-text h2,
     .vision-dream .manifesto-text strong {
