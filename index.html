@@ -450,28 +450,91 @@
     .blog-strip { background: #fff; }
     .blog-layout-home { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr); gap: 22px; align-items: start; }
     .blog-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: start; }
-    .blog-tile { background: #fff; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-card); border: 1px solid rgba(6,58,140,0.08); display: flex; flex-direction: column; height: 100%; }
-    .blog-thumb { height: 190px; position: relative; overflow: hidden; isolation: isolate; }
-    .blog-thumb::before { content: ""; position: absolute; right: -82px; bottom: -90px; width: 290px; height: 290px; background: url("images/np-logo-white-front.png") no-repeat center/contain; opacity: 0.18; transform: rotate(-16deg); pointer-events: none; z-index: 0; }
-    .blog-thumb-number { position: absolute; left: 18px; top: 16px; width: 62px; height: 62px; border-radius: 18px; display: grid; place-items: center; color: #fff; font-size: 26px; font-weight: 900; box-shadow: 0 10px 24px rgba(0,0,0,0.10); z-index: 2; }
-    .blog-tile h3 { margin: 0 0 10px; font-size: 28px; line-height: 1.05; color: var(--azul-profundo); }
-    .blog-tile p { margin: 0; font-size: 17px; line-height: 1.34; color: var(--gris-700); }
-    .blog-copy { padding: 22px; display: flex; flex-direction: column; flex: 1; }
-    .blog-link { display: inline-flex; margin-top: auto; padding-top: 16px; font-weight: 800; color: #0B78D0; }
-    .thumb-cobalt { background: linear-gradient(135deg, #0B5FFF, #39A0FF); }
-    .thumb-cobalt .blog-thumb-number { background: #063A8C; }
-    .thumb-lilac { background: linear-gradient(135deg, #7B2CBF, #9D6BFF); }
-    .thumb-lilac .blog-thumb-number { background: #5E2CA5; }
-    .thumb-green { background: linear-gradient(135deg, #138A36, #22B14C); }
-    .thumb-green .blog-thumb-number { background: #0E6B2A; }
-    .thumb-blue { background: linear-gradient(135deg, #063A8C, #0B78D0); }
-    .thumb-blue .blog-thumb-number { background: #032E73; }
-    .thumb-yellow { background: linear-gradient(135deg, #FFC857, #FF9A00); }
-    .thumb-yellow .blog-thumb-number { background: #C97800; }
-    .thumb-pink { background: linear-gradient(135deg, #E14B69, #FA709A); }
-    .thumb-pink .blog-thumb-number { background: #B12656; }
-    .thumb-purple { background: linear-gradient(135deg, #845EC2, #D65DB1); }
-    .thumb-purple .blog-thumb-number { background: #6B3DAA; }
+    .blog-tile {
+      position: relative;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(6,58,140,0.08);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+    .blog-tile::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.20), transparent 28%);
+      pointer-events: none;
+    }
+    .blog-thumb {
+      height: 156px;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+      border-bottom: 1px solid rgba(6,58,140,0.08);
+    }
+    .blog-thumb::before {
+      content: "";
+      position: absolute;
+      right: -24px;
+      top: 0;
+      bottom: 0;
+      width: 92px;
+      background: linear-gradient(180deg, var(--stripe-start), var(--stripe-end));
+      border-radius: 0 0 0 28px;
+      z-index: 1;
+      box-shadow: inset 10px 0 18px rgba(255,255,255,0.20);
+    }
+    .blog-thumb::after {
+      content: "";
+      position: absolute;
+      left: 18px;
+      bottom: -24px;
+      width: 160px;
+      height: 160px;
+      background: url("images/np-logo-white-front.png") no-repeat center/contain;
+      opacity: 0.08;
+      transform: rotate(-10deg);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .blog-thumb-number {
+      position: absolute;
+      right: 18px;
+      top: 16px;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 31px;
+      font-weight: 900;
+      z-index: 3;
+      text-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    }
+    .blog-tile h3 { margin: 0 0 10px; font-size: 26px; line-height: 1.02; color: var(--azul-profundo); }
+    .blog-tile p { margin: 0; font-size: 16px; line-height: 1.38; color: var(--gris-700); }
+    .blog-copy { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+    .blog-meta {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--azul-cuba);
+    }
+    .blog-link { display: inline-flex; margin-top: auto; padding-top: 16px; font-weight: 900; color: #0B78D0; }
+    .thumb-cobalt { --stripe-start: #0B5FFF; --stripe-end: #39A0FF; }
+    .thumb-lilac { --stripe-start: #7B2CBF; --stripe-end: #9D6BFF; }
+    .thumb-green { --stripe-start: #138A36; --stripe-end: #22B14C; }
+    .thumb-blue { --stripe-start: #063A8C; --stripe-end: #0B78D0; }
+    .thumb-yellow { --stripe-start: #FFC857; --stripe-end: #FF9A00; }
+    .thumb-pink { --stripe-start: #E14B69; --stripe-end: #FA709A; }
+    .thumb-purple { --stripe-start: #845EC2; --stripe-end: #D65DB1; }
     .blog-sidebox { background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-card); border: 1px solid rgba(6,58,140,0.08); padding: 20px; }
     .blog-sidebox h3 { margin-top: 0; color: var(--azul-profundo); }
     .blog-sidebox ol { margin: 0; padding-left: 20px; }
