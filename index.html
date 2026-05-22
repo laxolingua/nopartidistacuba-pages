@@ -1,3 +1,5 @@
+Total output lines: 975
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -465,171 +467,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.20), transparent 28%);
-      pointer-events: none;
-    }
-    .blog-thumb {
-      height: 156px;
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-      background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
-      border-bottom: 1px solid rgba(6,58,140,0.08);
-    }
-    .blog-thumb::before {
-      content: "";
-      position: absolute;
-      right: -24px;
-      top: 0;
-      bottom: 0;
-      width: 92px;
-      background: linear-gradient(180deg, var(--stripe-start), var(--stripe-end));
-      border-radius: 0 0 0 28px;
-      z-index: 1;
-      box-shadow: inset 10px 0 18px rgba(255,255,255,0.20);
-    }
-    .blog-thumb::after {
-      content: "";
-      position: absolute;
-      left: 18px;
-      bottom: -24px;
-      width: 160px;
-      height: 160px;
-      background: url("images/np-logo-white-front.png") no-repeat center/contain;
-      opacity: 0.08;
-      transform: rotate(-10deg);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .blog-thumb-number {
-      position: absolute;
-      right: 18px;
-      top: 16px;
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      color: #fff;
-      font-size: 31px;
-      font-weight: 900;
-      z-index: 3;
-      text-shadow: 0 4px 14px rgba(0,0,0,0.18);
-    }
-    .blog-tile h3 { margin: 0 0 10px; font-size: 26px; line-height: 1.02; color: var(--azul-profundo); }
-    .blog-tile p { margin: 0; font-size: 16px; line-height: 1.38; color: var(--gris-700); }
-    .blog-copy { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
-    .blog-meta {
-      display: inline-block;
-      margin-bottom: 10px;
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--azul-cuba);
-    }
-    .blog-link { display: inline-flex; margin-top: auto; padding-top: 16px; font-weight: 900; color: #0B78D0; }
-    .thumb-cobalt { --stripe-start: #0B5FFF; --stripe-end: #39A0FF; }
-    .thumb-lilac { --stripe-start: #7B2CBF; --stripe-end: #9D6BFF; }
-    .thumb-green { --stripe-start: #138A36; --stripe-end: #22B14C; }
-    .thumb-blue { --stripe-start: #063A8C; --stripe-end: #0B78D0; }
-    .thumb-yellow { --stripe-start: #FFC857; --stripe-end: #FF9A00; }
-    .thumb-pink { --stripe-start: #E14B69; --stripe-end: #FA709A; }
-    .thumb-purple { --stripe-start: #845EC2; --stripe-end: #D65DB1; }
-    .blog-sidebox { background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-card); border: 1px solid rgba(6,58,140,0.08); padding: 20px; }
-    .blog-sidebox h3 { margin-top: 0; color: var(--azul-profundo); }
-    .blog-sidebox ol { margin: 0; padding-left: 20px; }
-    .blog-sidebox li { margin-bottom: 10px; }
-    .blog-sidebox a { color: #0B78D0; font-weight: 700; }
-    @media (max-width: 980px) { .blog-layout-home { grid-template-columns: 1fr; } }
-    /* Future direction: when blog count grows, convert this grid into a horizontal reel/carousel with arrows. */
-    @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr; } }
-    .section-share { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-    .section-share a, .section-share button { background: #eef5ff; color: #03245C; border: 0; border-radius: 999px; padding: 10px 14px; font-weight: 800; text-decoration: none; cursor: pointer; }
-</style>
-</head>
-<body>
-  <main class="page">
-    <nav class="nav" aria-label="Navegación principal">
-      <a href="#inicio" class="brand" aria-label="NP Alternativa No Partidista de Cuba">
-        <img class="brand-mark" src="images/np-logo-2026.jpg" alt="NP Alternativa No Partidista de Cuba">
-        <div class="brand-text">
-          <span class="small">Alternativa</span>
-          <span class="name">No Partidista de Cuba</span>
-        </div>
-      </a>
-      <div class="nav-links">
-        <a href="#que-es">Qué es</a>
-        <a href="#diversidad">Diversidad política</a>
-        <a href="#argumento">Argumento</a>
-        <a href="#metodo">Método</a>
-        <a href="#blog">Blog</a>
-        <a href="divulgativas.html">Divulgativas</a>
-        <a class="nav-cta" href="afiliacion.html">Afíliate</a>
-      </div>
-    </nav>
-
-    <header class="hero" id="inicio">
-      <div class="hero-grid">
-        <section>
-          <div class="eyebrow"><i class="fi fi-br-lightbulb-on"></i> Soluciones por encima de colores políticos</div>
-          <img class="hero-wordmark" src="images/np-logo-white-front.png" alt="Alternativa No Partidista de Cuba">
-          <p class="hero-lead">Una vía plural para mirar las soluciones independientemente de quién las proponga o del color político de donde vengan.</p>
-          <div class="hero-actions">
-            <a class="btn-primary" href="#afiliate"><i class="fi fi-br-user-add"></i> Me identifico con NP</a>
-            <a class="btn-secondary" href="#diversidad"><i class="fi fi-br-palette"></i> Ver la idea pluralista</a>
-          </div>
-        </section>
-        <aside class="hero-card" aria-label="Mensaje central NP">
-          <div class="hero-card-content">
-            <img class="stamp" src="images/np-logo-2026.jpg" alt="Logo NP Alternativa No Partidista de Cuba">
-            <h2>La Alternativa No Partidista no es antipartidista.</h2>
-            <p>Es una forma de participación cívica que puede nutrirse de lo mejor de cada partido, grupo, ciudadano o corriente política.</p>
-            
-          </div>
-        </aside>
-      </div>
-    </header>
-
-<section class="section blog-strip" id="blog">
-      <div class="section-inner">
-        <div class="section-header">
-          <div>
-            <div class="kicker">Blog NP</div>
-            <h2>Ideas, argumentos y vía plural</h2>
-          </div>
-          <p class="section-intro">En la portada aparecen solo los 6 blogs más recientes. La biblioteca completa del blog permite explorar por categoría, fecha, autor y tags.</p>
-          <div class="section-share">
-            <a href="https://wa.me/?text=https://nopartidistacuba.org/#blog" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://nopartidistacuba.org/#blog" target="_blank" rel="noopener noreferrer">Facebook</a>
-            <button type="button" onclick="copyShareLink('https://nopartidistacuba.org/#blog')">Copiar enlace</button>
-          </div>
-        </div>
-        <div class="blog-layout-home">
-          <div class="blog-grid">
-            <article class="blog-tile">
-              <div class="blog-thumb thumb-blue"><div class="blog-thumb-number">08</div></div>
-              <div class="blog-copy">
-                <div class="blog-meta">Blog No. 08</div>
-                <h3>Democracia no partidista: una opción legítima dentro de una sociedad plural</h3>
-                <p>Una defensa del no partidismo como espacio democrático legítimo para ciudadanos que desean participar sin afiliarse a una estructura partidaria.</p>
-                <a class="blog-link" href="blog8.html">Leer artículo</a>
-              </div>
-            </article>
-            <article class="blog-tile">
-              <div class="blog-thumb thumb-cobalt"><div class="blog-thumb-number">07</div></div>
-              <div class="blog-copy">
-                <div class="blog-meta">Blog No. 07</div>
-                <h3>Reconocer el bien, venga de donde venga</h3>
-                <p>Una reflexión sobre madurez cívica y la necesidad de evaluar ideas y acciones por su valor real, no por el bando del que provengan.</p>
-                <a class="blog-link" href="blog7.html">Leer artículo</a>
-              </div>
-            </article>
-            <article class="blog-tile">
-              <div class="blog-thumb thumb-lilac"><div class="blog-thumb-number">06</div></div>
-              <div class="blog-copy">
-                <div class="blog-meta">Blog No. 06</div>
-                <h3>La Cuba futura tendrá que aprender a convivir con la diferencia</h3>
-                <p>Una reflexión sobre coexistencia democrática, pluralismo y la necesidad de que una Cuba libre aprenda a vivir con ideas diversas.</p>
+      background: linear-gradient(180deg, rgba(255,255,255,0.20), tran…2020 tokens truncated… vivir con ideas diversas.</p>
                 <a class="blog-link" href="blog6.html">Leer artículo</a>
               </div>
             </article>
@@ -678,6 +516,40 @@
         </div>
       </div>
     </section>
+
+
+<section class="section pages-strip" id="paginas">
+      <div class="section-inner">
+        <div class="section-header">
+          <div>
+            <div class="kicker">Páginas de trabajo</div>
+            <h2>Construcción de país</h2>
+          </div>
+          <p class="section-intro">Estas páginas organizan la participación no partidista en torno a visión, propuestas y acción concreta. No son textos decorativos: son espacios pensados para construir rumbo nacional entre todos.</p>
+        </div>
+        <div class="pages-grid">
+          <article class="page-tile">
+            <span class="page-chip">Plataforma</span>
+            <h3>Problemas y Propuestas</h3>
+            <p>Los miembros listan problemas, comparan soluciones y ayudan a construir una plataforma de gobierno basada en propuestas concretas y evaluables.</p>
+            <a class="page-link" href="problemas-propuestas.html">Abrir página →</a>
+          </article>
+          <article class="page-tile">
+            <span class="page-chip">Horizonte</span>
+            <h3>Visión de País</h3>
+            <p>Una visión plural para una Cuba libre, plural y próspera, con oportunidades para todos y una hoja de ruta compartida de futuro.</p>
+            <a class="page-link" href="vision-de-pais.html">Abrir página →</a>
+          </article>
+          <article class="page-tile">
+            <span class="page-chip">Acción</span>
+            <h3>Primeros 100 Días</h3>
+            <p>Acciones concretas para el arranque de gobierno: prioridades urgentes, señales de confianza y agenda mínima para una transición responsable.</p>
+            <a class="page-link" href="primeros-100-dias.html">Abrir página →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
 
     <section class="section" id="que-es">
       <div class="section-inner">
@@ -973,3 +845,4 @@
   </script>
 </body>
 </html>
+
